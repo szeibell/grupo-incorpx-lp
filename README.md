@@ -14,4 +14,3 @@ Site estático (HTML, CSS e JS puros, sem dependências).
 ## Pendências
 - Destinos dos botões das marcas e da Política de Privacidade.
 - Envio real do formulário de contato (hoje só valida e mostra a mensagem de sucesso).
-- Texto definitivo da Special X.

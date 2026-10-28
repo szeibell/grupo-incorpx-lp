@@ -160,7 +160,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 /* Marcas */
 .brands-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px clamp(40px,7vw,120px);align-items:end;margin-bottom:clamp(48px,6vw,80px)}
-.brands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.brands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .brand{background:var(--branco);display:flex;flex-direction:column;position:relative;transition:transform .6s var(--ease),box-shadow .6s var(--ease);text-decoration:none;color:inherit}
 .brand:hover{transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(27,27,27,.28)}
 .brand .ph{overflow:hidden;aspect-ratio:4/3;position:relative;max-width:100%}
@@ -170,8 +170,11 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .brand .in{padding:32px 28px 28px;display:flex;flex-direction:column;gap:18px;flex-grow:1}
 .brand .mark{height:52px;display:flex;align-items:center}
 .brand .mark img{height:100%;width:auto}
-.brand .mark.incorpx img{height:26px}
-.brand .mark.sx{font-size:26px;letter-spacing:.2em;text-transform:uppercase;line-height:1}
+.brand .mark.lockup img{height:auto;width:auto;max-width:100%;max-height:48px}
+.sx-lock{gap:clamp(12px,1.6vw,20px)}
+.sx-lock img{height:24px!important;max-height:none!important;flex-shrink:1;min-width:0;filter:brightness(0)}
+.sx-lock i{width:1px;height:40px;background:var(--cinza-claro)}
+.sx-lock span{font-size:clamp(15px,1.3vw,18px);letter-spacing:.2em;text-transform:uppercase;line-height:1;white-space:nowrap}
 .brand p{font-size:15px;line-height:1.6;color:var(--l-muted)}
 .brand p.first{color:var(--l-ink);font-size:16px}
 .brand .foot{margin-top:auto;padding-top:22px;border-top:1px solid var(--hair-dark);display:flex;justify-content:space-between;align-items:center;gap:16px}
@@ -181,34 +184,32 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .brand:hover .go{background:var(--grafite);border-color:var(--grafite);color:var(--off-white)}
 .brand:hover .go svg{transform:rotate(-45deg)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (max-width:1040px){.brands{grid-template-columns:repeat(2,minmax(0,1fr))}.brand:last-child{grid-column:1/-1}}
 @media (max-width:860px){.brands-head{grid-template-columns:1fr}}
 @media (max-width:680px){.brands{grid-template-columns:1fr}}
 
-/* Princípios */
-.princ-pattern{position:absolute;right:-60px;top:40px;width:min(520px,60vw);opacity:.1;pointer-events:none}
-.princ-head{display:flex;flex-direction:column;gap:24px;position:sticky;top:120px}
-.princ-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);align-items:start}
-.plist{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
-.plist li{border-bottom:1px solid var(--hair)}
-.pbtn{width:100%;display:grid;grid-template-columns:56px minmax(0,1fr) 36px;align-items:center;gap:16px;padding:24px 0;background:none;border:0;color:var(--muted);font:300 clamp(20px,2.2vw,30px)/1.2 var(--font);text-align:left;cursor:pointer;transition:color .4s}
-.pbtn .num{font-size:15px}
-.pbtn .plus{width:36px;height:36px;border-radius:50%;border:1px solid var(--hair);display:grid;place-items:center;transition:transform .5s var(--ease),background .4s,border-color .4s}
-.pbtn .plus svg{width:14px;height:14px}
-.pbtn:hover,.pbtn[aria-expanded="true"]{color:var(--ink)}
-.pbtn[aria-expanded="true"] .plus{transform:rotate(45deg);background:var(--terracota);border-color:var(--terracota);color:var(--grafite)}
-.pdesc{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
-.pdesc>div{overflow:hidden}
-.pdesc p{padding:0 52px 28px 72px;color:var(--muted);max-width:60ch}
-li.on .pdesc{grid-template-rows:1fr}
-.pstage{position:sticky;top:120px;aspect-ratio:1;max-width:100%;border:1px solid var(--hair);display:grid;place-items:center;overflow:hidden;background:var(--raised)}
-.pstage .bignum{position:absolute;left:24px;top:20px;font-size:14px;letter-spacing:.2em;color:var(--muted)}
-.pstage .ptitle{position:absolute;left:24px;right:24px;bottom:22px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
-.pstage svg.ico{width:44%;height:auto;stroke:var(--damasco);stroke-width:.8;fill:none;stroke-linejoin:miter}
-.pstage.draw svg.ico{animation:icoIn 1s var(--ease) both}
-.pstage .ring{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;border:1px dashed rgba(255,255,255,.12);animation:spin 60s linear infinite}
-@media (max-width:860px){.princ-grid{grid-template-columns:1fr}.princ-head{position:static}.pdesc p{padding:0 0 26px 72px}}
-@media (max-width:480px){.pbtn{grid-template-columns:40px minmax(0,1fr) 36px}.pdesc p{padding-left:56px}}
+/* Grupo IOX: título em largura total; textos e números na mesma grade de 3 colunas */
+.iox-head{display:flex;flex-direction:column;gap:24px;max-width:1080px}
+.iox-title{font-size:clamp(28px,3.4vw,50px);line-height:1.08;color:var(--ink)}
+.iox-copy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:clamp(48px,6vw,80px);padding-top:28px;border-top:1px solid var(--hair)}
+.iox-kicker{font-size:12px;line-height:1.7;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.iox-p{font-size:17px;line-height:1.65;color:var(--ink);max-width:42ch}
+.stats-head{margin-top:clamp(80px,10vw,136px);display:flex;align-items:center;gap:20px}
+.stats-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+.stats-title{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:8px}
+.stat{padding:40px 32px 44px 0;border-bottom:1px solid var(--hair);display:flex;flex-direction:column;gap:18px;min-width:0}
+.stat:not(:nth-child(3n+1)){padding-left:32px;border-left:1px solid var(--hair)}
+.stat-ico{width:34px;height:34px;color:var(--ink);transition:transform .6s var(--ease)}
+.stat:hover .stat-ico{transform:translateY(-4px)}
+.stat-n{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.12em;row-gap:6px;font-size:clamp(40px,4.4vw,66px);line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.stat-n .cnt{white-space:nowrap}
+.stat-n .plus-s{color:var(--terracota);margin-right:-.04em}
+.stat-n .cur{font-size:.5em;letter-spacing:0;align-self:flex-start;margin-top:.14em}
+.stat-n .unit{font-size:.36em;letter-spacing:.02em;color:var(--ink)}
+.stat-l{font-size:15px;line-height:1.5;color:var(--ink);max-width:28ch}
+@media (max-width:1000px){.stat-n{font-size:clamp(40px,7vw,64px)}}
+@media (max-width:860px){.iox-copy{grid-template-columns:1fr;gap:20px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:not(:nth-child(3n+1)){padding-left:0;border-left:0}.stat:nth-child(2n){padding-left:24px;border-left:1px solid var(--hair)}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.stat:nth-child(2n){padding-left:0;border-left:0}}
 
 /* Contato */
 .contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);align-items:start}
@@ -290,7 +291,7 @@ li.on .pdesc{grid-template-rows:1fr}
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#grupo">O Grupo</a>
       <a href="#marcas">Nossas marcas</a>
-      <a href="#principios">Nossos princípios</a>
+      <a href="#iox">Grupo IOX</a>
       <a class="btn" href="#contato">Contato</a>
     </nav>
   </div>
@@ -341,11 +342,6 @@ li.on .pdesc{grid-template-rows:1fr}
       <p class="statement" id="statement">Somos o Grupo Incorpx. Nossa atuação conecta a experiência de quem desenvolve projetos imobiliários à solidez e à expertise financeira do Grupo IOX.</p>
       <p class="body rv">Reunimos marcas com propostas próprias, voltadas a diferentes segmentos e momentos de vida. Da conquista de um imóvel à formação de patrimônio, reconhecemos o que cada escolha representa para quem confia em nossas empresas.</p>
       <p class="body rv d1">Cabe ao grupo orientar a estratégia e integrar a gestão, fortalecendo cada negócio e preservando sua identidade. É assim que criamos condições para crescer com critério e desenvolver relações de longo prazo.</p>
-      <div class="pillars rv d2">
-        <div class="pillar"><b>Especialização.</b></div>
-        <div class="pillar"><b>Respaldo.</b></div>
-        <div class="pillar"><b>Gestão integrada.</b></div>
-      </div>
     </div>
   </div>
 </section>
@@ -400,7 +396,7 @@ li.on .pdesc{grid-template-rows:1fr}
       <a class="brand rv" href="#marcas" data-link="inix">
         <div class="ph"><img src="img/marca-inix.jpg" alt="" width="624" height="440"><span class="tag">Minha Casa Minha Vida</span></div>
         <div class="in">
-          <div class="mark"><img src="img/logo-inix.png" alt="INIX" width="799" height="683"></div>
+          <div class="mark lockup"><img src="img/endosso-inix-positivo.png" alt="Grupo Incorpx e INIX" width="2368" height="414"></div>
           <p class="first">A INIX é a marca do grupo dedicada a empreendimentos do Minha Casa Minha Vida. Sua atuação se conecta aos planos de quem busca conquistar um imóvel e começar uma nova etapa da vida.</p>
           <p>Com foco nas necessidades desse público, reúne o compromisso com a qualidade e o respaldo do Grupo Incorpx.</p>
           <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INIX</span></div>
@@ -409,33 +405,63 @@ li.on .pdesc{grid-template-rows:1fr}
       <a class="brand rv d1" href="#marcas" data-link="incorpx">
         <div class="ph"><img src="img/marca-incorpx.jpg" alt="" width="624" height="470"><span class="tag">Médio e alto padrão</span></div>
         <div class="in">
-          <div class="mark incorpx"><img src="img/logo-incorpx.png" alt="INCORPX" width="897" height="131"></div>
+          <div class="mark lockup"><img src="img/endosso-incorpx-positivo.png" alt="Grupo Incorpx e INCORPX" width="2572" height="414"></div>
           <p class="first">A INCORPX é a marca do grupo voltada a empreendimentos de médio e alto padrão. Desenvolve projetos para quem busca mais conforto e qualidade de vida ou deseja ampliar seu patrimônio por meio do mercado imobiliário.</p>
           <p>Sua atuação combina experiência imobiliária e atenção às expectativas de cada público, com o suporte de uma gestão integrada.</p>
           <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INCORPX</span></div>
-        </div>
-      </a>
-      <a class="brand rv d2" href="#marcas" data-link="specialx">
-        <div class="ph"><img src="img/04-detalhes.jpg" alt="" width="1200" height="900"><span class="tag">Triple A</span></div>
-        <div class="in">
-          <div class="mark sx">Special X</div>
-          <p class="first">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, sed do eiusmod tempor incididunt ut labore.</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a Special X</span></div>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- 5. Princípios -->
-<section class="band princ" id="principios">
-  <div class="wrap princ-grid">
-    <div class="princ-head">
-      <p class="eyebrow rv">Nossos princípios</p>
-      <h2 class="h2 rv d1">Princípios que dão fundamento à nossa atuação.</h2>
+<!-- 5. Grupo IOX -->
+<section class="band iox" id="iox">
+  <div class="wrap">
+    <div class="iox-head">
+      <p class="eyebrow rv">Respaldo Grupo IOX</p>
+      <h2 class="h2 iox-title rv d1">A experiência imobiliária do Grupo Incorpx conta com o respaldo do Grupo IOX, especializado em crédito estruturado e investimentos.</h2>
     </div>
-    <ul class="plist" id="plist"></ul>
+    <div class="iox-copy">
+      <p class="iox-kicker rv">Crédito estruturado<br>e investimentos</p>
+      <p class="iox-p rv d1">Com mais de duas décadas de atuação, o IOX conecta empresas que buscam capital a investidores, desenvolvendo soluções financeiras personalizadas e operações lastreadas em ativos reais.</p>
+      <p class="iox-p rv d2">Essa experiência fortalece a base financeira que acompanha o desenvolvimento dos nossos negócios, com análise, planejamento e visão de longo prazo.</p>
+    </div>
+    <div class="stats-head rv">
+      <p class="stats-title">A dimensão do Grupo IOX em números.</p>
+    </div>
+    <div class="stats" id="stats">
+        <div class="stat rv">
+          <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M7.5 13h3M13.5 13h3M7.5 16.5h3"/></svg>
+          <p class="stat-n"><span class="plus-s">+</span><span class="cnt" data-to="22">22</span> <span class="unit">anos</span></p>
+          <p class="stat-l">de história</p>
+        </div>
+        <div class="stat rv d1">
+          <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M3.5 20.5h17M3.5 3.5v17"/><path d="m6.5 16 4-4.5 3 2.5 6-7"/><path d="M15.5 7h4v4"/></svg>
+          <p class="stat-n"><span class="plus-s">+</span><span class="cnt" data-to="17">17</span> <span class="unit">anos</span></p>
+          <p class="stat-l">de experiência no mercado de capitais</p>
+        </div>
+        <div class="stat rv d2">
+          <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M7 3.5h8l4 4v13H7z"/><path d="M15 3.5v4h4"/><path d="M4.5 6.5v15h11"/><path d="m10 13.5 2 2 4-4"/></svg>
+          <p class="stat-n"><span class="plus-s">+</span><span class="cnt" data-to="3">3</span> <span class="unit">mil</span></p>
+          <p class="stat-l">operações de crédito estruturadas</p>
+        </div>
+        <div class="stat rv">
+          <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M4 8h14M14.5 4.5 18 8l-3.5 3.5"/><path d="M20 16H6M9.5 12.5 6 16l3.5 3.5"/></svg>
+          <p class="stat-n"><span class="plus-s">+</span><span class="cur">R$</span><span class="cnt" data-to="33">33</span> <span class="unit">bilhões</span></p>
+          <p class="stat-l">em volume originado e processado — VOP</p>
+        </div>
+        <div class="stat rv d1">
+          <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M3.5 9 12 4l8.5 5"/><path d="M5 9.5h14M3.5 20.5h17M6.5 10v8M10 10v8M14 10v8M17.5 10v8"/></svg>
+          <p class="stat-n"><span class="plus-s">+</span><span class="cur">R$</span><span class="cnt" data-to="3,95">3,95</span> <span class="unit">bilhões</span></p>
+          <p class="stat-l">de patrimônio líquido</p>
+        </div>
+        <div class="stat rv d2">
+          <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.4 5 2.8 5 5.8"/></svg>
+          <p class="stat-n"><span class="plus-s">+</span><span class="cnt" data-to="240">240</span></p>
+          <p class="stat-l">profissionais especializados</p>
+        </div>
+    </div>
   </div>
 </section>
 
@@ -531,7 +557,7 @@ li.on .pdesc{grid-template-rows:1fr}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
     rvs.forEach(function(el){io.observe(el);});
     var spy=new IntersectionObserver(function(es){es.forEach(function(e){var a=links[e.target.id];if(a)a.classList.toggle('active',e.isIntersecting);});},{rootMargin:'-45% 0px -50% 0px'});
-    ['grupo','marcas','principios','contato'].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
+    ['grupo','marcas','iox','contato'].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
   }
 
   /* Texto que acende palavra a palavra conforme a rolagem */
@@ -569,24 +595,15 @@ li.on .pdesc{grid-template-rows:1fr}
   function openPanel(t){panels.forEach(function(p){p.classList.toggle('on',p===t);});}
   panels.forEach(function(p){p.addEventListener('mouseenter',function(){openPanel(p);});p.addEventListener('focus',function(){openPanel(p);});p.addEventListener('click',function(){openPanel(p);});});
 
-  /* Princípios: lista interativa + palco com ícone desenhado */
-  var P=[
-    ['Integridade','Conduzimos os negócios com ética e transparência, alinhando o que comunicamos ao que praticamos.','<path pathLength="100" d="M12 3v17M8 21h8M4 7h16"/><path pathLength="100" d="M4 7 1.5 13a2.5 2.5 0 0 0 5 0L4 7M20 7l-2.5 6a2.5 2.5 0 0 0 5 0L20 7"/>'],
-    ['Responsabilidade','Avaliamos riscos e assumimos compromissos com critério, considerando os impactos de nossas decisões.','<rect pathLength="100" x="5" y="4" width="14" height="17"/><rect pathLength="100" x="9" y="2.5" width="6" height="3"/><path pathLength="100" d="m9 13 2 2 4-4"/>'],
-    ['Excelência','Buscamos qualidade no planejamento, na execução e nas relações, respeitando cada segmento.','<path pathLength="100" d="M8 3l3 7M16 3l-3 7"/><circle pathLength="100" cx="12" cy="15.5" r="5"/><circle pathLength="100" cx="12" cy="15.5" r="2"/>'],
-    ['Colaboração','Compartilhamos conhecimento e competências para fortalecer cada empresa e ampliar a capacidade do grupo.','<circle pathLength="100" cx="9" cy="8" r="3"/><path pathLength="100" d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle pathLength="100" cx="17" cy="9" r="2.5"/><path pathLength="100" d="M16 14.2c2.8.4 5 2.8 5 5.8"/>'],
-    ['Respeito às diferentes realidades','Reconhecemos os objetivos de quem busca morar, investir ou desenvolver negócios e dedicamos o mesmo compromisso a cada relação.','<path pathLength="100" d="M12 20s-7-4.4-7-9.5A4 4 0 0 1 12 8a4 4 0 0 1 7 2.5C19 15.6 12 20 12 20z"/>'],
-    ['Visão de longo prazo','Equilibramos os resultados de hoje com a continuidade dos negócios e o valor que construímos ao longo do tempo.','<path pathLength="100" d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/>']
-  ];
-  var plist=document.getElementById('plist');
-  var plus='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 1v12M1 7h12"/></svg>';
-  plist.innerHTML=P.map(function(p,i){var n=('0'+(i+1)).slice(-2);return '<li'+(i===0?' class="on"':'')+'><button class="pbtn" type="button" id="pb'+i+'" aria-expanded="'+(i===0)+'" aria-controls="pd'+i+'"><span class="num">'+n+'.</span><span>'+p[0]+'</span><span class="plus">'+plus+'</span></button><div class="pdesc" id="pd'+i+'" role="region" aria-labelledby="pb'+i+'"><div><p>'+p[1]+'</p></div></div></li>';}).join('');
-  var items=[].slice.call(plist.children);
-  function pick(i){
-    items.forEach(function(li,j){var on=j===i;li.classList.toggle('on',on);li.querySelector('.pbtn').setAttribute('aria-expanded',on);});
+  /* Grupo IOX: números contam ao entrar na tela (o valor final já está no HTML) */
+  var cnts=[].slice.call(document.querySelectorAll('.cnt'));
+  function fmt(v,dec){return v.toFixed(dec).replace('.',',');}
+  if('IntersectionObserver' in window && !reduce){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var el=e.target,raw=el.getAttribute('data-to'),dec=(raw.split(',')[1]||'').length,to=parseFloat(raw.replace(',','.')),t0=null,dur=1600;
+      function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),ease=1-Math.pow(1-k,3);el.textContent=fmt(to*ease,dec);if(k<1)requestAnimationFrame(step);else el.textContent=raw;}
+      if(el.getBoundingClientRect().top>window.innerHeight*0.5||true){el.textContent=fmt(0,dec);requestAnimationFrame(step);}});},{threshold:.6});
+    cnts.forEach(function(el){if(el.getBoundingClientRect().top>window.innerHeight)cio.observe(el);});
   }
-  items.forEach(function(li,i){var b=li.querySelector('.pbtn');b.addEventListener('click',function(){pick(i);});b.addEventListener('mouseenter',function(){if(window.matchMedia('(hover:hover) and (min-width:861px)').matches)pick(i);});});
-  pick(0);
 
   /* Destinos das marcas ainda a confirmar: evita salto para o topo */
   document.querySelectorAll('[data-link]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
