@@ -137,27 +137,6 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .pillar span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--l-muted)}
 @media (max-width:860px){.about-grid{grid-template-columns:1fr}.about-left{position:static}.pillars{grid-template-columns:1fr}.pillar+.pillar{border-left:0;border-top:1px solid var(--hair-dark);padding-left:0;padding-bottom:18px}.pillar{padding-bottom:18px}}
 
-/* Fundamentos: painéis que se expandem */
-.found-head{display:flex;flex-direction:column;gap:24px;max-width:900px;margin-bottom:clamp(48px,6vw,80px)}
-.panels{display:flex;gap:12px;height:clamp(480px,46vw,640px)}
-.panel{position:relative;flex:1 1 0;min-width:0;overflow:hidden;background:var(--raised);cursor:pointer;transition:flex-grow .9s var(--ease)}
-.panel.on{flex-grow:2.3}
-.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.62);transform:scale(1.08);transition:transform 1.4s var(--ease),filter 1s var(--ease)}
-.panel.on img{transform:scale(1);filter:grayscale(1) brightness(.78)}
-.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.92) 0%,rgba(10,10,10,.4) 45%,rgba(10,10,10,0) 75%);pointer-events:none}
-.panel-in{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;gap:10px}
-.panel h3{font-weight:300;font-size:clamp(20px,2vw,30px);line-height:1.15;color:var(--ink);max-width:16ch}
-.panel-txt{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .8s var(--ease),opacity .6s var(--ease)}
-.panel-txt>p{overflow:hidden;color:var(--soft);font-size:15px;line-height:1.6;max-width:44ch}
-.panel.on .panel-txt{grid-template-rows:1fr;opacity:1;transition-delay:.15s}
-.panel:focus-visible{outline:2px solid var(--damasco);outline-offset:3px}
-@media (max-width:860px){
-  .panels{flex-direction:column;height:auto}
-  .panel,.panel.on{flex:none;height:420px}
-  .panel-txt{grid-template-rows:1fr;opacity:1}
-  .panel img{transform:none;filter:grayscale(1) brightness(.7)}
-}
-
 /* Marcas */
 .brands-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px clamp(40px,7vw,120px);align-items:end;margin-bottom:clamp(48px,6vw,80px)}
 .brands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
@@ -212,6 +191,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 @media (max-width:520px){.stats{grid-template-columns:1fr}.stat:nth-child(2n){padding-left:0;border-left:0}}
 
 /* Contato */
+#contato{border-top:1px solid var(--hair-dark)}
 .contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);align-items:start}
 .contact-left{display:flex;flex-direction:column;gap:28px;min-width:0}
 .formcard{background:var(--branco);padding:clamp(24px,4vw,48px);min-width:0}
@@ -290,8 +270,8 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><span></span></button>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#grupo">O Grupo</a>
-      <a href="#marcas">Nossas marcas</a>
       <a href="#iox">Grupo IOX</a>
+      <a href="#marcas">Nossas marcas</a>
       <a class="btn" href="#contato">Contato</a>
     </nav>
   </div>
@@ -345,76 +325,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   </div>
 </section>
 
-<!-- 3. Fundamentos -->
-<section class="band" id="fundamentos">
-  <div class="wrap">
-    <div class="found-head">
-      <p class="eyebrow rv">Fundamentos da atuação</p>
-      <h2 class="h2 rv d1">Conhecimento para decidir. <span class="mute">Estrutura para realizar.</span></h2>
-    </div>
-    <div class="panels" id="panels">
-      <article class="panel on rv" tabindex="0" aria-labelledby="fp1">
-        <img src="img/quem-somos.jpg" alt="Reunião de trabalho diante de janelas" width="576" height="1080">
-        <div class="panel-in">
-          <span class="num">01.</span>
-          <h3 id="fp1">Fundamento financeiro</h3>
-          <div class="panel-txt"><p>Análise, planejamento e governança orientam nossas decisões. Avaliamos as oportunidades e seus riscos para dar consistência ao desenvolvimento dos negócios.</p></div>
-        </div>
-      </article>
-      <article class="panel rv d1" tabindex="0" aria-labelledby="fp2">
-        <img src="img/01-arquitetura.jpg" alt="Fachada de vidro de um edifício vista de baixo" width="1200" height="900">
-        <div class="panel-in">
-          <span class="num">02.</span>
-          <h3 id="fp2">Fundamento imobiliário</h3>
-          <div class="panel-txt"><p>Conhecimento de mercado e capacidade de realização dão estrutura aos projetos, considerando as características de cada segmento e os objetivos de seu público.</p></div>
-        </div>
-      </article>
-      <article class="panel rv d2" tabindex="0" aria-labelledby="fp3">
-        <img src="img/gestao-integrada.jpg" alt="Pessoa diante de uma janela ampla com vista para a cidade em construção" width="1330" height="1685">
-        <div class="panel-in">
-          <span class="num">03.</span>
-          <h3 id="fp3">Gestão integrada</h3>
-          <div class="panel-txt"><p>Compartilhamos competências para fortalecer nossas empresas. Cada marca mantém seu foco de atuação, com uma direção comum e o suporte do grupo.</p></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 4. Nossas marcas -->
-<section class="band light" id="marcas">
-  <div class="wrap">
-    <div class="brands-head">
-      <div style="display:flex;flex-direction:column;gap:24px">
-        <p class="eyebrow rv">Nossas marcas</p>
-        <h2 class="h2 rv d1">Diferentes propostas. <span class="mute">O mesmo compromisso.</span></h2>
-      </div>
-      <p class="body rv d2">Cada marca do Grupo Incorpx tem uma atuação própria. Juntas, ampliam nossa capacidade de atender diferentes necessidades no mercado imobiliário, com responsabilidade e respeito às particularidades de cada público.</p>
-    </div>
-    <div class="brands">
-      <a class="brand rv" href="#marcas" data-link="inix">
-        <div class="ph"><img src="img/marca-inix.jpg" alt="" width="624" height="440"><span class="tag">Minha Casa Minha Vida</span></div>
-        <div class="in">
-          <div class="mark lockup"><img src="img/endosso-inix-positivo.png" alt="Grupo Incorpx e INIX" width="2368" height="414"></div>
-          <p class="first">A INIX é a marca do grupo dedicada a empreendimentos do Minha Casa Minha Vida. Sua atuação se conecta aos planos de quem busca conquistar um imóvel e começar uma nova etapa da vida.</p>
-          <p>Com foco nas necessidades desse público, reúne o compromisso com a qualidade e o respaldo do Grupo Incorpx.</p>
-          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INIX</span></div>
-        </div>
-      </a>
-      <a class="brand rv d1" href="#marcas" data-link="incorpx">
-        <div class="ph"><img src="img/marca-incorpx.jpg" alt="" width="624" height="470"><span class="tag">Médio e alto padrão</span></div>
-        <div class="in">
-          <div class="mark lockup"><img src="img/endosso-incorpx-positivo.png" alt="Grupo Incorpx e INCORPX" width="2572" height="414"></div>
-          <p class="first">A INCORPX é a marca do grupo voltada a empreendimentos de médio e alto padrão. Desenvolve projetos para quem busca mais conforto e qualidade de vida ou deseja ampliar seu patrimônio por meio do mercado imobiliário.</p>
-          <p>Sua atuação combina experiência imobiliária e atenção às expectativas de cada público, com o suporte de uma gestão integrada.</p>
-          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INCORPX</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 5. Grupo IOX -->
+<!-- 3. Grupo IOX -->
 <section class="band iox" id="iox">
   <div class="wrap">
     <div class="iox-head">
@@ -464,7 +375,40 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   </div>
 </section>
 
-<!-- 6. Contato -->
+<!-- 4. Nossas marcas -->
+<section class="band light" id="marcas">
+  <div class="wrap">
+    <div class="brands-head">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <p class="eyebrow rv">Nossas marcas</p>
+        <h2 class="h2 rv d1">Diferentes propostas. <span class="mute">O mesmo compromisso.</span></h2>
+      </div>
+      <p class="body rv d2">Cada marca do Grupo Incorpx tem uma atuação própria. Juntas, ampliam nossa capacidade de atender diferentes necessidades no mercado imobiliário, com responsabilidade e respeito às particularidades de cada público.</p>
+    </div>
+    <div class="brands">
+      <a class="brand rv" href="#marcas" data-link="inix">
+        <div class="ph"><img src="img/marca-inix.jpg" alt="" width="624" height="440"><span class="tag">Minha Casa Minha Vida</span></div>
+        <div class="in">
+          <div class="mark lockup"><img src="img/endosso-inix-positivo.png" alt="Grupo Incorpx e INIX" width="2368" height="414"></div>
+          <p class="first">A INIX é a marca do grupo dedicada a empreendimentos do Minha Casa Minha Vida. Sua atuação se conecta aos planos de quem busca conquistar um imóvel e começar uma nova etapa da vida.</p>
+          <p>Com foco nas necessidades desse público, reúne o compromisso com a qualidade e o respaldo do Grupo Incorpx.</p>
+          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INIX</span></div>
+        </div>
+      </a>
+      <a class="brand rv d1" href="#marcas" data-link="incorpx">
+        <div class="ph"><img src="img/marca-incorpx.jpg" alt="" width="624" height="470"><span class="tag">Médio e alto padrão</span></div>
+        <div class="in">
+          <div class="mark lockup"><img src="img/endosso-incorpx-positivo.png" alt="Grupo Incorpx e INCORPX" width="2572" height="414"></div>
+          <p class="first">A INCORPX é a marca do grupo voltada a empreendimentos de médio e alto padrão. Desenvolve projetos para quem busca mais conforto e qualidade de vida ou deseja ampliar seu patrimônio por meio do mercado imobiliário.</p>
+          <p>Sua atuação combina experiência imobiliária e atenção às expectativas de cada público, com o suporte de uma gestão integrada.</p>
+          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INCORPX</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Contato -->
 <section class="band light" id="contato">
   <div class="wrap contact-grid">
     <div class="contact-left">
@@ -506,7 +450,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </section>
 </main>
 
-<!-- 7. Rodapé -->
+<!-- 6. Rodapé -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
@@ -556,7 +500,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
     rvs.forEach(function(el){io.observe(el);});
     var spy=new IntersectionObserver(function(es){es.forEach(function(e){var a=links[e.target.id];if(a)a.classList.toggle('active',e.isIntersecting);});},{rootMargin:'-45% 0px -50% 0px'});
-    ['grupo','marcas','iox','contato'].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
+    ['grupo','iox','marcas','contato'].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
   }
 
   /* Texto que acende palavra a palavra conforme a rolagem */
@@ -588,11 +532,6 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   onScroll();lightWords();parallax();
 
   var hv=document.getElementById('heroVideo'); if(reduce&&hv){hv.removeAttribute('autoplay');hv.pause();}
-
-  /* Fundamentos: painel ativo por hover, foco ou toque */
-  var panels=[].slice.call(document.querySelectorAll('.panel'));
-  function openPanel(t){panels.forEach(function(p){p.classList.toggle('on',p===t);});}
-  panels.forEach(function(p){p.addEventListener('mouseenter',function(){openPanel(p);});p.addEventListener('focus',function(){openPanel(p);});p.addEventListener('click',function(){openPanel(p);});});
 
   /* Grupo IOX: números contam ao entrar na tela (o valor final já está no HTML) */
   var cnts=[].slice.call(document.querySelectorAll('.cnt'));
