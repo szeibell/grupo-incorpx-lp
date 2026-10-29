@@ -227,19 +227,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 @media (max-width:560px){.form{grid-template-columns:1fr}}
 
 /* Rodapé */
-.footer{padding-block:clamp(72px,9vw,120px) 40px;border-top:1px solid var(--hair);overflow:hidden}
-.footer-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
-.fnav{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
-.fnav a{font-size:14px;color:var(--soft);text-decoration:none;padding-block:8px}
-.fnav a:hover{color:var(--damasco)}
-.footer-bottom{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;margin-top:clamp(56px,7vw,96px);padding-top:28px;border-top:1px solid var(--hair)}
-.flogo{display:inline-flex;align-self:center}
-.flogo img{height:clamp(44px,5vw,64px);width:auto}
-.footer-bottom small{font-size:12px;color:var(--muted)}
-.totop{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);text-decoration:none;padding-block:10px}
-.totop svg{width:14px;height:14px;transition:transform .4s var(--ease)}
-.totop:hover svg{transform:translateY(-3px)}
-@media (max-width:700px){.footer-top{grid-template-columns:1fr}}
+.footer{padding-block:28px;border-top:1px solid var(--hair)}
+.flogo{display:inline-flex}
+.flogo img{height:22px;width:auto}
 
 /* Revelação ao rolar: o estado de repouso é visível; só elementos ainda fora da tela recebem o estado inicial */
 .pre{opacity:0;transform:translateY(36px)}
@@ -445,19 +435,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 <!-- 6. Rodapé -->
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-top">
-      <a class="flogo rv" href="#inicio" aria-label="Grupo Incorpx, voltar ao início"><img src="img/logo-grupo-negativo.svg" alt="Grupo Incorpx" width="236" height="34"></a>
-      <nav class="fnav" aria-label="Rodapé">
-        <a href="#grupo">O Grupo</a>
-        <a href="#marcas">Nossas marcas</a>
-        <a href="#contato">Contato</a>
-        <a href="#inicio" data-link="privacidade">Política de Privacidade</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <small>© Grupo Incorpx. Todos os direitos reservados.</small>
-      <a class="totop" href="#inicio">Voltar ao topo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></a>
-    </div>
+    <a class="flogo" href="#inicio" aria-label="Grupo Incorpx, voltar ao início"><img src="img/logo-grupo-negativo.svg" alt="Grupo Incorpx" width="236" height="34"></a>
   </div>
 </footer>
 
