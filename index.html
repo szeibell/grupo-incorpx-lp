@@ -237,6 +237,8 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 /* Rodapé */
 .footer{padding-block:28px;border-top:1px solid var(--hair)}
+.footer-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
+.faddr{font-style:normal;font-size:13px;letter-spacing:.04em;color:var(--soft)}
 .flogo{display:inline-flex}
 .flogo img{height:22px;width:auto}
 
@@ -443,7 +445,8 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 6. Rodapé -->
 <footer class="footer">
-  <div class="wrap">
+  <div class="wrap footer-row">
+    <address class="faddr">Av. Brigadeiro Faria Lima, 210 – Pinheiros</address>
     <a class="flogo" href="#inicio" aria-label="Grupo Incorpx, voltar ao início"><img src="img/logo-grupo-negativo.svg" alt="Grupo Incorpx" width="236" height="34"></a>
   </div>
 </footer>
