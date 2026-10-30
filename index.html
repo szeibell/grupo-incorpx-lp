@@ -175,6 +175,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .seal{position:absolute;left:20px;top:20px;z-index:1;width:clamp(82px,6.7vw,96px);aspect-ratio:1;border-radius:50%;background:rgba(241,240,235,.92);display:grid;place-items:center}
 .brand .ph .seal img{width:66%;height:auto;object-fit:contain;filter:brightness(0);opacity:.85;transform:none;transition:none}
 
+/* Palavra em cobre, com o degradê do ícone do logo */
+.cobre{color:#c27b54;background:linear-gradient(100deg,#c27b54 0%,#d08b65 55%,#dc9e7f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
 /* Grupo IOX: título em largura total; textos e números na mesma grade de 3 colunas */
 .iox-head{display:flex;flex-direction:column;gap:24px;max-width:1080px}
 .iox-title{font-size:clamp(24px,2.6vw,40px);line-height:1.12;color:var(--ink)}
@@ -318,7 +321,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   <div class="wrap about">
     <div class="about-left">
       <p class="eyebrow rv">Quem somos</p>
-      <h2 class="h2 rv d1">A confiança de um grupo por trás de cada projeto.</h2>
+      <h2 class="h2 rv d1">A <span class="cobre">confiança</span> de um grupo por trás de cada projeto.</h2>
     </div>
     <div class="about-right">
       <p class="about-title rv">Somos o <strong>Grupo Incorpx</strong><span class="dot">.</span></p>
