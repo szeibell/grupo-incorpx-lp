@@ -214,10 +214,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .vcard:nth-child(3n+2){margin-top:clamp(36px,4vw,64px)}
 .vcard:nth-child(3n){margin-top:clamp(16px,1.8vw,28px)}
 .vnum{font-size:clamp(36px,3.4vw,52px);line-height:.9;font-weight:300;letter-spacing:-.04em;color:var(--l-ink);font-variant-numeric:tabular-nums}
-.vph{aspect-ratio:4/5;max-width:100%;background:#e3e1db;border:1px dashed #b9b5ad;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--l-muted);transition:background .5s var(--ease)}
-.vph svg{width:24px;height:24px}
-.vph span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding-inline:12px}
-.vcard:hover .vph{background:#dcd9d2}
+.vph{aspect-ratio:4/5;max-width:100%;overflow:hidden;background:#dcd9d2}
+.vph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.1s var(--ease)}
+.vcard:hover .vph img{transform:scale(1.05)}
 .vcard h3{font-weight:400;font-size:clamp(17px,1.3vw,19px);line-height:1.2;color:var(--l-ink);margin-top:4px;transition:color .45s var(--ease)}
 .vcard:hover h3{color:#b8714b}
 .vcard p{font-size:14px;line-height:1.55;color:var(--l-muted);max-width:34ch}
@@ -426,43 +425,43 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <ul class="vtrack" id="vtrack" tabindex="0" aria-label="Valores do Grupo Incorpx, role para o lado">
         <li class="vcard">
           <span class="vnum" aria-hidden="true">01</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Integridade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Integridade</span></div>
+          <div class="vph"><img src="img/valores/integridade.jpg" alt="Duas pessoas em reunião diante de uma janela" width="560" height="700" loading="lazy"></div>
           <h3>Integridade</h3>
           <p>Conduzir cada relação e decisão com ética, transparência e coerência, fortalecendo a confiança que sustenta nossos negócios.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">02</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Solidez"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Solidez</span></div>
+          <div class="vph"><img src="img/valores/solidez.jpg" alt="Estrutura de vidro e aço vista de baixo" width="560" height="700" loading="lazy"></div>
           <h3>Solidez</h3>
           <p>Construir resultados duradouros por meio de uma atuação responsável, fundamentada em consistência, segurança e sustentabilidade.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">03</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Inteligência estratégica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Inteligência estratégica</span></div>
+          <div class="vph"><img src="img/valores/inteligencia-estrategica.jpg" alt="Pessoas conversando em uma mesa de trabalho" width="560" height="700" loading="lazy"></div>
           <h3>Inteligência estratégica</h3>
           <p>Transformar conhecimento, dados e oportunidades em decisões que geram valor.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">04</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Excelência"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Excelência</span></div>
+          <div class="vph"><img src="img/valores/excelencia.jpg" alt="Detalhe de painel de madeira com formas curvas" width="560" height="700" loading="lazy"></div>
           <h3>Excelência</h3>
           <p>Buscar qualidade em cada processo, projeto, relacionamento e entrega.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">05</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Responsabilidade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Responsabilidade</span></div>
+          <div class="vph"><img src="img/valores/responsabilidade.jpg" alt="Engenheiro analisando uma planta diante de uma obra" width="560" height="700" loading="lazy"></div>
           <h3>Responsabilidade</h3>
           <p>Honrar compromissos e entregar aquilo que prometemos.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">06</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Respeito às pessoas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Respeito às pessoas</span></div>
+          <div class="vph"><img src="img/valores/respeito-as-pessoas.jpg" alt="Duas pessoas caminhando em um corredor iluminado" width="560" height="700" loading="lazy"></div>
           <h3>Respeito às pessoas</h3>
           <p>Valorizar clientes, colaboradores, parceiros e suas histórias.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">07</span>
-          <div class="vph" role="img" aria-label="Espaço reservado para foto do valor Visão de futuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="6.5" width="18" height="13"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/><circle cx="12" cy="13" r="3.6"/></svg><span>Foto · Visão de futuro</span></div>
+          <div class="vph"><img src="img/valores/visao-de-futuro.jpg" alt="Pessoa diante de uma janela ampla com vista para a cidade" width="560" height="700" loading="lazy"></div>
           <h3>Visão de futuro</h3>
           <p>Planejar com perspectiva de longo prazo, buscando evolução e geração de valor duradouro.</p>
         </li>
