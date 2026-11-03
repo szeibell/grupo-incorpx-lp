@@ -163,6 +163,8 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .brand p.first{color:var(--l-ink);font-size:16px}
 .brand .foot{margin-top:auto;padding-top:22px;border-top:1px solid var(--hair-dark);display:flex;justify-content:space-between;align-items:center;gap:16px}
 .brand .foot small{font-size:12px;color:var(--l-muted)}
+.brand .cta{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--l-ink);white-space:nowrap}
+@media (max-width:420px){.brand .foot{flex-wrap:wrap}}
 .brand .go{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex-shrink:0;transition:background .45s var(--ease),border-color .45s,color .45s}
 .brand .go svg{width:18px;height:18px;transition:transform .45s var(--ease)}
 .brand:hover .go{background:var(--grafite);border-color:var(--grafite);color:var(--off-white)}
@@ -178,6 +180,11 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 /* Palavra em cobre, com o degradê do ícone do logo */
 .cobre{color:#c27b54;background:linear-gradient(100deg,#c27b54 0%,#d08b65 55%,#dc9e7f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+.more{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--l-ink);text-decoration:none;padding:12px 0;border-bottom:1px solid #b8714b}
+.more svg{width:16px;height:16px;transition:transform .45s var(--ease)}
+.more:hover{color:#b8714b}
+.more:hover svg{transform:translateX(4px)}
 
 /* Grupo IOX: título em largura total; textos e números na mesma grade de 3 colunas */
 .iox-head{display:flex;flex-direction:column;gap:24px;max-width:1080px}
@@ -278,6 +285,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <a href="#grupo">Quem somos</a>
       <a href="#iox">Grupo IOX</a>
       <a href="#marcas">Nossas marcas</a>
+      <a href="institucional.html">Institucional</a>
       <a class="btn" href="#contato">Contato</a>
     </nav>
   </div>
@@ -330,6 +338,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <div class="about-body">
         <p class="rv">Nossas marcas atendem a diferentes públicos e momentos de vida. Do primeiro imóvel à formação de patrimônio, entendemos que cada escolha envolve planos, expectativas e confiança.</p>
         <p class="rv d1">Com uma estratégia compartilhada e uma gestão integrada, damos suporte ao crescimento de cada empresa, respeitando o que a torna única. Assim, desenvolvemos projetos consistentes e construímos relações que se fortalecem ao longo do tempo.</p>
+        <a class="more rv d2" href="institucional.html">Missão, visão e valores<span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -396,22 +405,22 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <p class="body rv d2">Cada marca do Grupo Incorpx tem uma atuação própria. Juntas, ampliam nossa capacidade de atender diferentes necessidades no mercado imobiliário, com responsabilidade e respeito às particularidades de cada público.</p>
     </div>
     <div class="brands">
-      <a class="brand rv" href="#marcas" data-link="inix">
+      <a class="brand rv" href="https://www.inixincorporadora.com.br/" target="_blank" rel="noopener" aria-label="INIX: conheça nossos produtos (abre o site da INIX em nova aba)">
         <div class="ph"><img src="img/marca-inix.jpg?v=4" alt="Casal comemorando em frente à casa nova, com a chave na mão" width="1678" height="937"><span class="seal"><img src="img/selo-mcmv.png?v=2" alt="Minha Casa Minha Vida" width="368" height="321"></span></div>
         <div class="in">
           <div class="mark"><img src="img/logo-inix.png?v=2" alt="INIX" width="1202" height="578"></div>
           <p class="first">A INIX é a marca do Grupo Incorpx dedicada a empreendimentos do Minha Casa Minha Vida. Desenvolve projetos para quem deseja conquistar a casa própria e dar um novo passo na vida, com mais conforto e segurança.</p>
           <p>Com o suporte do grupo, alia qualidade e planejamento para tornar essa conquista mais acessível e atender às necessidades de quem vai morar.</p>
-          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INIX</span></div>
+          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="cta">Conheça nossos produtos<span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></span></div>
         </div>
       </a>
-      <a class="brand rv d1" href="#marcas" data-link="incorpx">
+      <a class="brand rv d1" href="https://incorpx.com.vc/" target="_blank" rel="noopener" aria-label="INCORPX: conheça nossos produtos (abre o site da INCORPX em nova aba)">
         <div class="ph"><img src="img/marca-incorpx.jpg?v=2" alt="Casal preparando o café da manhã em uma cozinha ampla" width="1400" height="1050"><span class="tag tag-cobre">Médio e alto padrão</span></div>
         <div class="in">
           <div class="mark incorpx"><img src="img/logo-incorpx.png" alt="INCORPX" width="897" height="131"></div>
           <p class="first">A INCORPX é a marca do grupo que desenvolve empreendimentos de médio e alto padrão. Seus projetos atendem a quem busca um novo lugar para viver com mais conforto e a quem vê no imóvel uma oportunidade de construir patrimônio.</p>
           <p>Com experiência imobiliária e o suporte de uma gestão integrada, transforma diferentes expectativas em projetos que valorizam os espaços e a qualidade de vida.</p>
-          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span><span class="sr">Conheça a INCORPX</span></div>
+          <div class="foot"><small>Uma empresa do Grupo Incorpx.</small><span class="cta">Conheça nossos produtos<span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></span></div>
         </div>
       </a>
     </div>
