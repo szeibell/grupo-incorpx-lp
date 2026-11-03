@@ -181,10 +181,38 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 /* Palavra em cobre, com o degradê do ícone do logo */
 .cobre{color:#c27b54;background:linear-gradient(100deg,#c27b54 0%,#d08b65 55%,#dc9e7f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
-.more{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--l-ink);text-decoration:none;padding:12px 0;border-bottom:1px solid #b8714b}
-.more svg{width:16px;height:16px;transition:transform .45s var(--ease)}
-.more:hover{color:#b8714b}
-.more:hover svg{transform:translateX(4px)}
+
+/* Página institucional: abertura escura, missão e visão em duas colunas, valores em lista com filetes */
+.ihero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,7vw,120px);align-items:end}
+.ihero-head{display:flex;flex-direction:column;gap:28px;min-width:0}
+.ititle{font-size:clamp(38px,5vw,76px);line-height:.98;letter-spacing:-.03em;font-weight:300;text-transform:uppercase;text-wrap:balance}
+.ititle em{font-style:normal;color:var(--damasco)}
+.ihero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.ihero-copy .lead{color:var(--ink)}
+.ihero-copy p.body{color:var(--soft);font-size:16px;line-height:1.65}
+.mv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.mv-col{display:flex;flex-direction:column;gap:28px;min-width:0;padding-right:clamp(32px,5vw,80px)}
+.mv-col+.mv-col{padding-right:0;padding-left:clamp(32px,5vw,80px);border-left:1px solid rgba(197,126,88,.55)}
+.mv-col h2{font-size:clamp(34px,4vw,60px);line-height:1;letter-spacing:-.03em;font-weight:300;text-transform:none;color:var(--l-ink)}
+.mv-col h2 .dot{color:var(--terracota)}
+.mv-col p{font-size:clamp(19px,1.8vw,26px);line-height:1.38;color:#3a3735;max-width:34ch}
+.vals-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px clamp(40px,7vw,120px);align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.vals-head .h2{font-size:clamp(34px,4vw,60px)}
+.vals-cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);padding-bottom:16px;border-bottom:1px solid var(--hair-dark);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--l-muted)}
+.vals{list-style:none;margin:0;padding:0}
+.val{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:12px clamp(40px,7vw,120px);align-items:baseline;padding-block:clamp(22px,2.4vw,32px);border-bottom:1px solid var(--hair-dark)}
+.val h3{font-weight:300;font-size:clamp(22px,2.2vw,32px);line-height:1.15;letter-spacing:-.01em;color:var(--l-ink);transition:color .45s var(--ease)}
+.val p{font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--l-muted);max-width:52ch}
+.val:hover h3{color:#b8714b}
+@media (max-width:860px){
+  .ihero-grid,.vals-head{grid-template-columns:1fr}
+  .mv{grid-template-columns:1fr;row-gap:48px}
+  .mv-col{padding-right:0}
+  .mv-col+.mv-col{padding-left:0;border-left:0;padding-top:48px;border-top:1px solid rgba(197,126,88,.55)}
+  .vals-cols{display:none}
+  .val{grid-template-columns:1fr}
+}
+.vals-wrap{margin-top:clamp(96px,11vw,160px)}
 
 /* Grupo IOX: título em largura total; textos e números na mesma grade de 3 colunas */
 .iox-head{display:flex;flex-direction:column;gap:24px;max-width:1080px}
@@ -283,9 +311,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><span></span></button>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#grupo">Quem somos</a>
+      <a href="#institucional">Institucional</a>
       <a href="#iox">Grupo IOX</a>
       <a href="#marcas">Nossas marcas</a>
-      <a href="institucional.html">Institucional</a>
       <a class="btn" href="#contato">Contato</a>
     </nav>
   </div>
@@ -338,9 +366,56 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <div class="about-body">
         <p class="rv">Nossas marcas atendem a diferentes públicos e momentos de vida. Do primeiro imóvel à formação de patrimônio, entendemos que cada escolha envolve planos, expectativas e confiança.</p>
         <p class="rv d1">Com uma estratégia compartilhada e uma gestão integrada, damos suporte ao crescimento de cada empresa, respeitando o que a torna única. Assim, desenvolvemos projetos consistentes e construímos relações que se fortalecem ao longo do tempo.</p>
-        <a class="more rv d2" href="institucional.html">Missão, visão e valores<span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 2b. Institucional -->
+<!-- Posicionamento institucional -->
+<section class="band inst" id="institucional">
+  <div class="wrap ihero-grid">
+    <div class="ihero-head">
+      <p class="eyebrow rv">Posicionamento institucional</p>
+      <h2 class="ititle rv d1">O futuro se constrói com <em>fundamento</em>.</h2>
+    </div>
+    <div class="ihero-copy">
+      <p class="lead rv">Um ecossistema imobiliário que integra diferentes segmentos, do econômico ao alto padrão, reunindo a força de duas marcas, INIX e INCORPX, e uma gestão estratégica para criar novas possibilidades de morar e investir.</p>
+      <p class="body rv d1">Temos uma equipe com ampla expertise no mercado imobiliário, conhecimento técnico, visão estratégica e capacidade de transformar oportunidades em negócios consistentes.</p>
+      <p class="body rv d2">Com a solidez e a experiência do Grupo IOX, fortalecemos nossa atuação por meio de uma visão de longo prazo, inteligência de negócios e compromisso com a geração de valor.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Missão, visão e valores -->
+<section class="band light" id="missao">
+  <div class="wrap mv">
+    <div class="mv-col">
+      <h2 class="rv">Missão<span class="dot">.</span></h2>
+      <p class="rv d1">Transformar oportunidades imobiliárias em negócios sólidos e relevantes, integrando inteligência, planejamento e excelência para gerar valor duradouro às pessoas, aos parceiros e à sociedade.</p>
+    </div>
+    <div class="mv-col" id="visao">
+      <h2 class="rv">Visão<span class="dot">.</span></h2>
+      <p class="rv d1">Ser reconhecido como um grupo imobiliário de referência pela solidez de seus fundamentos, inteligência estratégica e capacidade de desenvolver negócios que geram valor e confiança para o futuro.</p>
+    </div>
+  </div>
+  <div class="wrap vals-wrap" id="valores">
+    <div class="vals-head">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <p class="eyebrow rv">Valores</p>
+        <h2 class="h2 rv d1">Nossos <span class="cobre">valores</span>.</h2>
+      </div>
+    </div>
+    <div class="vals-cols" aria-hidden="true"><span>Valor</span><span>Nosso compromisso</span></div>
+    <ul class="vals">
+        <li class="val rv"><h3>Integridade</h3><p>Agir com ética, transparência e respeito em todas as relações.</p></li>
+        <li class="val rv d1"><h3>Solidez</h3><p>Construir negócios sobre fundamentos consistentes, responsáveis e sustentáveis.</p></li>
+        <li class="val rv"><h3>Inteligência estratégica</h3><p>Transformar conhecimento, dados e oportunidades em decisões que geram valor.</p></li>
+        <li class="val rv d1"><h3>Excelência</h3><p>Buscar qualidade em cada processo, projeto, relacionamento e entrega.</p></li>
+        <li class="val rv"><h3>Responsabilidade</h3><p>Honrar compromissos e entregar aquilo que prometemos.</p></li>
+        <li class="val rv d1"><h3>Respeito às pessoas</h3><p>Valorizar clientes, colaboradores, parceiros e suas histórias.</p></li>
+        <li class="val rv"><h3>Visão de futuro</h3><p>Planejar com perspectiva de longo prazo, buscando evolução e geração de valor duradouro.</p></li>
+    </ul>
   </div>
 </section>
 
@@ -497,7 +572,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
     rvs.forEach(function(el){io.observe(el);});
     var spy=new IntersectionObserver(function(es){es.forEach(function(e){var a=links[e.target.id];if(a)a.classList.toggle('active',e.isIntersecting);});},{rootMargin:'-45% 0px -50% 0px'});
-    ['grupo','iox','marcas','contato'].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
+    ['grupo','institucional','iox','marcas','contato'].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
   }
 
   /* Texto que acende palavra a palavra conforme a rolagem */
