@@ -196,23 +196,23 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .mv-col h2{font-size:clamp(34px,4vw,60px);line-height:1;letter-spacing:-.03em;font-weight:300;text-transform:none;color:var(--l-ink)}
 .mv-col h2 .dot{color:var(--terracota)}
 .mv-col p{font-size:clamp(19px,1.8vw,26px);line-height:1.38;color:#3a3735;max-width:34ch}
-.vals-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px clamp(40px,7vw,120px);align-items:end;margin-bottom:clamp(40px,5vw,64px)}
-.vals-head .h2{font-size:clamp(34px,4vw,60px)}
-.vals-cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);padding-bottom:16px;border-bottom:1px solid var(--hair-dark);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--l-muted)}
-.vals{list-style:none;margin:0;padding:0}
-.val{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:12px clamp(40px,7vw,120px);align-items:baseline;padding-block:clamp(22px,2.4vw,32px);border-bottom:1px solid var(--hair-dark)}
-.val h3{font-weight:300;font-size:clamp(22px,2.2vw,32px);line-height:1.15;letter-spacing:-.01em;color:var(--l-ink);transition:color .45s var(--ease)}
-.val p{font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--l-muted);max-width:52ch}
-.val:hover h3{color:#b8714b}
 @media (max-width:860px){
-  .ihero-grid,.vals-head{grid-template-columns:1fr}
+  .ihero-grid{grid-template-columns:1fr}
   .mv{grid-template-columns:1fr;row-gap:48px}
   .mv-col{padding-right:0}
   .mv-col+.mv-col{padding-left:0;border-left:0;padding-top:48px;border-top:1px solid rgba(197,126,88,.55)}
-  .vals-cols{display:none}
-  .val{grid-template-columns:1fr}
 }
-.vals-wrap{margin-top:clamp(96px,11vw,160px)}
+.vals-wrap{margin-top:clamp(72px,8vw,120px)}
+.vals{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair-dark)}
+.vals>li{padding:26px 24px 30px;border-bottom:1px solid var(--hair-dark);border-left:1px solid var(--hair-dark);display:flex;flex-direction:column;gap:10px;min-width:0}
+.vals>li:nth-child(4n+1){border-left:0;padding-left:0}
+.vals-intro{justify-content:space-between;gap:18px!important}
+.vals-intro .h2{font-size:clamp(26px,2.6vw,38px)}
+.val h3{font-weight:400;font-size:clamp(17px,1.4vw,20px);line-height:1.2;color:var(--l-ink);transition:color .45s var(--ease)}
+.val p{font-size:14px;line-height:1.55;color:var(--l-muted)}
+.val:hover h3{color:#b8714b}
+@media (max-width:1000px){.vals{grid-template-columns:repeat(2,minmax(0,1fr))}.vals>li:nth-child(4n+1){border-left:1px solid var(--hair-dark);padding-left:24px}.vals>li:nth-child(2n+1){border-left:0;padding-left:0}}
+@media (max-width:520px){.vals{grid-template-columns:1fr}.vals>li{border-left:0!important;padding:20px 0 22px!important}}
 
 /* Grupo IOX: título em largura total; textos e números na mesma grade de 3 colunas */
 .iox-head{display:flex;flex-direction:column;gap:24px;max-width:1080px}
@@ -400,21 +400,15 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
     </div>
   </div>
   <div class="wrap vals-wrap" id="valores">
-    <div class="vals-head">
-      <div style="display:flex;flex-direction:column;gap:24px">
-        <p class="eyebrow rv">Valores</p>
-        <h2 class="h2 rv d1">Nossos <span class="cobre">valores</span>.</h2>
-      </div>
-    </div>
-    <div class="vals-cols" aria-hidden="true"><span>Valor</span><span>Nosso compromisso</span></div>
     <ul class="vals">
-        <li class="val rv"><h3>Integridade</h3><p>Agir com ética, transparência e respeito em todas as relações.</p></li>
-        <li class="val rv d1"><h3>Solidez</h3><p>Construir negócios sobre fundamentos consistentes, responsáveis e sustentáveis.</p></li>
-        <li class="val rv"><h3>Inteligência estratégica</h3><p>Transformar conhecimento, dados e oportunidades em decisões que geram valor.</p></li>
-        <li class="val rv d1"><h3>Excelência</h3><p>Buscar qualidade em cada processo, projeto, relacionamento e entrega.</p></li>
-        <li class="val rv"><h3>Responsabilidade</h3><p>Honrar compromissos e entregar aquilo que prometemos.</p></li>
-        <li class="val rv d1"><h3>Respeito às pessoas</h3><p>Valorizar clientes, colaboradores, parceiros e suas histórias.</p></li>
-        <li class="val rv"><h3>Visão de futuro</h3><p>Planejar com perspectiva de longo prazo, buscando evolução e geração de valor duradouro.</p></li>
+      <li class="vals-intro rv"><p class="eyebrow">Valores</p><h2 class="h2">Nossos <span class="cobre">valores</span>.</h2></li>
+      <li class="val rv d1"><h3>Integridade</h3><p>Agir com ética, transparência e respeito em todas as relações.</p></li>
+      <li class="val rv d2"><h3>Solidez</h3><p>Construir negócios sobre fundamentos consistentes, responsáveis e sustentáveis.</p></li>
+      <li class="val rv d3"><h3>Inteligência estratégica</h3><p>Transformar conhecimento, dados e oportunidades em decisões que geram valor.</p></li>
+      <li class="val rv"><h3>Excelência</h3><p>Buscar qualidade em cada processo, projeto, relacionamento e entrega.</p></li>
+      <li class="val rv d1"><h3>Responsabilidade</h3><p>Honrar compromissos e entregar aquilo que prometemos.</p></li>
+      <li class="val rv d2"><h3>Respeito às pessoas</h3><p>Valorizar clientes, colaboradores, parceiros e suas histórias.</p></li>
+      <li class="val rv d3"><h3>Visão de futuro</h3><p>Planejar com perspectiva de longo prazo, buscando evolução e geração de valor duradouro.</p></li>
     </ul>
   </div>
 </section>
