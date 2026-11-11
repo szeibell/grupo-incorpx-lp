@@ -368,6 +368,40 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   .pre{opacity:1;transform:none}
   .success svg path{stroke-dashoffset:0}
 }
+
+/* Quem somos — layout editorial com imagens em movimento */
+#grupo.qs{background:#f5f2ed;color:#1b1b1b}
+.qs-head{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);align-items:end;margin-bottom:clamp(56px,8vw,120px)}
+.qs-head .eyebrow{margin-bottom:28px}
+.qs-title{font-weight:300;text-transform:uppercase;font-size:clamp(36px,4.6vw,76px);line-height:1;letter-spacing:-.025em;color:#a8957f;max-width:21ch}
+.qs-title .dot,.qs-sub .dot{color:#a8957f}
+.qs-lead{font-size:clamp(14px,1.05vw,16px);line-height:1.5;color:#3d3936;max-width:34ch;padding-bottom:.5em}
+.qs-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(12px,1.4vw,22px);align-items:stretch}
+.qs-ph{position:relative;margin:0;overflow:hidden;background:#e7e1d8;will-change:transform}
+.qs-ph img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;display:block;will-change:transform;transform:scale(1.18);transition:transform 1.6s var(--ease)}
+.qs-ph.on img{transform:scale(1.04)}
+.qs-ph{clip-path:inset(18% 0 0 0);transition:clip-path 1.4s var(--ease)}
+.qs-ph.on{clip-path:inset(0 0 0 0)}
+.qs-big{min-height:clamp(420px,42vw,640px)}
+.qs-side{display:flex;flex-direction:column;gap:clamp(40px,5vw,80px)}
+.qs-info{display:grid;grid-template-columns:minmax(0,1fr) clamp(110px,11vw,170px);gap:clamp(24px,4vw,64px);align-items:start;padding-left:clamp(0px,12%,170px)}
+.qs-sub{font-weight:300;text-transform:uppercase;font-size:clamp(24px,2.3vw,38px);line-height:1.05;letter-spacing:-.015em;color:#a8957f;margin-bottom:clamp(20px,2.4vw,36px)}
+.qs-txt p{font-size:clamp(13.5px,1vw,15.5px);line-height:1.6;color:#3d3936;max-width:42ch}
+.qs-txt p+p{margin-top:12px}
+.qs-link{display:inline-flex;align-items:center;gap:14px;margin-top:clamp(22px,2.4vw,34px);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--terracota);text-decoration:none}
+.qs-link svg{width:24px;height:12px;fill:none;stroke:currentColor;stroke-width:1.3;transition:transform .45s var(--ease)}
+.qs-link:hover svg{transform:translateX(6px)}
+.qs-thumb{aspect-ratio:.86/1;width:100%}
+.qs-thumb img{object-position:38% 60%}
+.qs-wide{aspect-ratio:1.78/1;margin-top:auto}
+@media (max-width:900px){
+  .qs-head{grid-template-columns:1fr;gap:24px}
+  .qs-grid{grid-template-columns:1fr}
+  .qs-big{aspect-ratio:4/5;min-height:0}
+  .qs-title{max-width:none}
+  .qs-info{padding-left:0;grid-template-columns:minmax(0,1fr) 110px}
+}
+@media (max-width:520px){.qs-info{grid-template-columns:1fr}.qs-thumb{max-width:180px}}
 </style>
 </head>
 <body>
@@ -422,18 +456,28 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </div>
 
 <!-- 2. Quem somos -->
-<section class="band light" id="grupo">
-  <div class="wrap about">
-    <div class="about-left">
-      <p class="eyebrow rv">Quem somos</p>
-      <h2 class="h2 rv d1">A <span class="cobre">confiança</span> de um grupo por trás de cada projeto.</h2>
+<section class="band light qs" id="grupo">
+  <div class="wrap">
+    <div class="qs-head">
+      <div>
+        <p class="eyebrow rv">Quem somos</p>
+        <h2 class="qs-title rv d1">A <span class="cobre">confiança</span> de um grupo por trás de cada projeto<span class="dot">.</span></h2>
+      </div>
+      <p class="qs-lead rv d2">Acreditamos que construir o futuro começa com boas decisões no presente e com o compromisso de transformar planos em realizações.</p>
     </div>
-    <div class="about-right">
-      <p class="about-title rv">Somos o <strong>Grupo Incorpx</strong><span class="dot">.</span></p>
-      <p class="statement" id="statement">Acreditamos que construir o futuro começa com boas decisões no presente e com o compromisso de transformar planos em realizações.</p>
-      <div class="about-body">
-        <p class="rv">Nossas marcas atendem a diferentes públicos e momentos de vida. Do primeiro imóvel à formação de patrimônio, entendemos que cada escolha envolve planos, expectativas e confiança.</p>
-        <p class="rv d1">Com uma estratégia compartilhada e uma gestão integrada, damos suporte ao crescimento de cada empresa, respeitando o que a torna única. Assim, desenvolvemos projetos consistentes e construímos relações que se fortalecem ao longo do tempo.</p>
+    <div class="qs-grid">
+      <figure class="qs-ph qs-big" data-speed="-6"><img src="img/qs-fachada.jpg?v=1" alt="Fachada de edifício residencial contemporâneo em concreto branco" loading="lazy"></figure>
+      <div class="qs-side">
+        <div class="qs-info">
+          <div class="qs-txt">
+            <h3 class="qs-sub rv">Somos o Grupo Incorpx<span class="dot">.</span></h3>
+            <p class="rv d1">Nossas marcas atendem a diferentes públicos e momentos de vida. Do primeiro imóvel à formação de patrimônio, entendemos que cada escolha envolve planos, expectativas e confiança.</p>
+            <p class="rv d2">Com uma estratégia compartilhada e uma gestão integrada, damos suporte ao crescimento de cada empresa, respeitando o que a torna única.</p>
+            <a class="qs-link rv d3" href="#marcas">Conheça nossas marcas <svg viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h22M17 1l5 5-5 5"/></svg></a>
+          </div>
+          <figure class="qs-ph qs-thumb" data-speed="-16"><img src="img/qs-poltrona.jpg?v=1" alt="Poltrona junto a janela de vidro com luz natural" loading="lazy"></figure>
+        </div>
+        <figure class="qs-ph qs-wide" data-speed="8"><img src="img/qs-sala.jpg?v=1" alt="Sala de estar com janelas do piso ao teto e vista para a cidade" loading="lazy"></figure>
       </div>
     </div>
   </div>
@@ -780,6 +824,14 @@ function up(){tk=0;var y=top.getBoundingClientRect().top+top.offsetHeight/2,on=f
 lights.forEach(function(sec){var r=sec.getBoundingClientRect();if(y>=r.top&&y<r.bottom)on=true;});
 if(iox){var r=iox.getBoundingClientRect(),fade=Math.min(560,Math.max(420,innerWidth*.38));if(y<r.bottom&&y>r.bottom-fade*.42)on=true;}
 top.classList.toggle('on-light',on);}
+addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up);}},{passive:true});addEventListener('resize',up);up();})();
+
+/* Quem somos: revelação e parallax das imagens */
+(function(){var ph=[].slice.call(document.querySelectorAll('.qs-ph'));if(!ph.length)return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+ph.forEach(function(f){io.observe(f);});var tk=0;
+function up(){tk=0;var vh=innerHeight;ph.forEach(function(f){var r=f.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;var p=Math.max(-1,Math.min(1,(r.top+r.height/2-vh/2)/(vh/2+r.height/2)));var sp=parseFloat(f.dataset.speed)||0;
+f.style.transform='translate3d(0,'+(p*sp*6).toFixed(1)+'px,0)';var im=f.firstElementChild;im.style.translate='0 '+(p*-9).toFixed(2)+'%';});}
 addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up);}},{passive:true});addEventListener('resize',up);up();})();
 </script>
 
