@@ -343,10 +343,10 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .hero>.wrap{position:relative;z-index:1}
 
 /* Posicionamento: Avenida Paulista à noite, bem sutil, sob o fundo escuro */
-.inst-bg{position:absolute;left:0;right:0;top:-50%;bottom:-50%;will-change:transform;z-index:0;pointer-events:none;opacity:.7;filter:sepia(.3) saturate(1.05)}
+.inst-bg{position:absolute;left:0;right:0;top:-50%;bottom:-50%;will-change:transform;z-index:0;pointer-events:none;opacity:1;filter:sepia(.25) saturate(1.05) brightness(1.15)}
 .inst-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
 #institucional{overflow:hidden}
-.inst-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,15,13,.92) 0%,rgba(18,15,13,.55) 45%,rgba(18,15,13,.35) 100%),linear-gradient(180deg,rgba(18,15,13,.6) 0%,transparent 30%,transparent 70%,rgba(18,15,13,.75) 100%)}
+.inst-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,15,13,.7) 0%,rgba(18,15,13,.3) 45%,rgba(18,15,13,.1) 100%),linear-gradient(180deg,rgba(18,15,13,.6) 0%,transparent 30%,transparent 70%,rgba(18,15,13,.75) 100%)}
 #institucional>.wrap{position:relative;z-index:1}
 
 /* Revelação ao rolar: o estado de repouso é visível; só elementos ainda fora da tela recebem o estado inicial */
@@ -537,7 +537,7 @@ mask:linear-gradient(#000 0 0) top/100% calc(100% - clamp(56px,8vw,130px) + 1px)
 <!-- Posicionamento institucional -->
 <div class="wave flip" style="--wc:#f5f2ed" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band inst" id="institucional">
-<div class="inst-bg" aria-hidden="true"><video src="img/inst-fluido.mp4?v=1" poster="img/inst-fluido-poster.jpg?v=1" autoplay muted loop playsinline preload="metadata"></video></div>
+<div class="inst-bg" aria-hidden="true"><video src="img/inst-arq.mp4?v=1" poster="img/inst-arq-poster.jpg?v=1" autoplay muted loop playsinline preload="metadata"></video></div>
   <div class="wrap ihero-grid">
     <div class="ihero-head">
       <p class="eyebrow rv">Posicionamento institucional</p>
