@@ -307,29 +307,36 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .footer{background:radial-gradient(ellipse 40% 140% at 100% 100%,rgba(197,126,88,.16),transparent 70%),var(--ground)}
 .hero,.band{position:relative;overflow:hidden}
 .hero>.wrap,.band>.wrap{position:relative;z-index:1}
+/* arcos de luz só nas faixas de respiro (topo e base de cada seção), nunca sobre o conteúdo */
 .fx{position:absolute;inset:0;pointer-events:none;z-index:0}
-.fx i{position:absolute;border-radius:50%;border:2px solid transparent;border-top-color:rgba(246,194,160,.95);
-  filter:drop-shadow(0 0 4px rgba(240,166,122,.95)) drop-shadow(0 0 22px rgba(214,136,92,.7));
-  -webkit-mask:linear-gradient(90deg,transparent 0%,#000 30%,#000 70%,transparent 100%);mask:linear-gradient(90deg,transparent 0%,#000 30%,#000 70%,transparent 100%)}
-.fx i:nth-child(1){width:1100px;height:1100px;left:-520px;bottom:-860px;transform:rotate(28deg)}
-.fx i:nth-child(2){width:900px;height:900px;right:-560px;top:-120px;transform:rotate(-62deg)}
-.light .fx i{border-top-color:rgba(205,128,86,.55);filter:drop-shadow(0 0 2px rgba(214,140,95,.6)) drop-shadow(0 0 12px rgba(214,140,95,.35))}
-#institucional .fx i:nth-child(2){right:-380px;top:-520px;transform:rotate(-30deg)}
-#iox .fx i:nth-child(1){left:auto;right:-600px;bottom:-900px;transform:rotate(-24deg)}
-#contato .fx i:nth-child(2){right:-500px;top:auto;bottom:-700px;transform:rotate(-40deg)}
-#missao .fx i:nth-child(1){left:auto;right:-700px;top:-780px;bottom:auto;transform:rotate(200deg)}
-@media (max-width:700px){.fx i:nth-child(1){width:700px;height:700px;left:-380px;bottom:-560px}.fx i:nth-child(2){width:560px;height:560px;right:-380px}}
+.fx i{position:absolute;left:0;right:0;overflow:hidden;height:clamp(70px,9vw,130px);-webkit-mask:linear-gradient(90deg,transparent 0%,#000 18%,#000 82%,transparent 100%);mask:linear-gradient(90deg,transparent 0%,#000 18%,#000 82%,transparent 100%)}
+.fx i:nth-child(1){bottom:0}
+.fx i:nth-child(2){top:0}
+.fx i::before{content:"";position:absolute;border-radius:50%;border:2px solid transparent;
+  filter:drop-shadow(0 0 4px rgba(240,166,122,.95)) drop-shadow(0 0 20px rgba(214,136,92,.65));
+  }
+.fx i:nth-child(1)::before{width:2400px;height:2400px;left:calc(22% - 1200px);top:38%;border-top-color:rgba(246,194,160,.95)}
+.fx i:nth-child(2)::before{width:2200px;height:2200px;right:calc(18% - 1100px);bottom:42%;border-bottom-color:rgba(246,194,160,.95)}
+.light .fx i::before{filter:drop-shadow(0 0 2px rgba(214,140,95,.6)) drop-shadow(0 0 12px rgba(214,140,95,.35))}
+.light .fx i:nth-child(1)::before{border-top-color:rgba(205,128,86,.6)}
+.light .fx i:nth-child(2)::before{border-bottom-color:rgba(205,128,86,.6)}
+.hero .fx i:nth-child(2){display:none}
+.hero .fx i:nth-child(1){height:clamp(50px,6vw,96px)}
+#iox .fx i:nth-child(1),#marcas .fx i:nth-child(2){display:none}
+/* transição suave do Grupo IOX (escuro) para Nossas marcas (bege) */
+#iox{padding-bottom:clamp(180px,20vw,280px)}
+#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(160px,18vw,250px);background:linear-gradient(180deg,rgba(18,15,13,0) 0%,rgba(74,48,34,.55) 30%,rgba(176,124,94,.75) 58%,rgba(228,206,188,.95) 82%,#f3ece4 100%);pointer-events:none;z-index:0}
+
 /* símbolo do banner com borda luminosa */
 .sym-stage{filter:drop-shadow(0 0 1px rgba(240,182,146,.9)) drop-shadow(0 0 22px rgba(197,126,88,.45))}
-.sym-mask video{filter:sepia(.55) saturate(1.5) contrast(1.06) brightness(.98)}
+.sym-mask video{filter:grayscale(1) contrast(1.1)}
+.sym-mask::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 60% 45%,rgba(255,150,80,.75),rgba(255,150,80,.25) 55%,rgba(255,150,80,0) 80%);mix-blend-mode:soft-light;pointer-events:none}
 /* fotos dos valores com luz dourada */
 .vph{position:relative}
-.vph img{filter:sepia(.6) saturate(1.45) contrast(1.06) brightness(.98)}
-.vph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 75% 20%,rgba(255,176,112,.38),transparent 65%);mix-blend-mode:screen;pointer-events:none}
 .vcard h3::after{content:"";display:block;width:56px;height:2px;margin-top:12px;background:linear-gradient(90deg,#c27b54,rgba(194,123,84,0))}
 .vals-title::after{content:"";display:block;width:min(420px,60%);height:2px;margin-top:22px;background:linear-gradient(90deg,#c27b54,rgba(194,123,84,0))}
 /* fotos das marcas: luz quente sem tirar as cores */
-.brand .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 15%,rgba(255,170,105,.30),transparent 65%);mix-blend-mode:screen;pointer-events:none;z-index:0}
+.brand .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 15%,rgba(255,150,80,.55),transparent 65%);mix-blend-mode:soft-light;pointer-events:none;z-index:0}
 .brand .ph .tag,.brand .ph .seal{z-index:2}
 
 /* Revelação ao rolar: o estado de repouso é visível; só elementos ainda fora da tela recebem o estado inicial */
@@ -462,43 +469,43 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <ul class="vtrack" id="vtrack" tabindex="0" aria-label="Valores do Grupo Incorpx, role para o lado">
         <li class="vcard">
           <span class="vnum" aria-hidden="true">01</span>
-          <div class="vph"><img src="img/valores/integridade.jpg" alt="Duas pessoas em reunião diante de uma janela" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/integridade.jpg?v=2" alt="Duas pessoas em reunião diante de uma janela" width="560" height="700" loading="lazy"></div>
           <h3>Integridade</h3>
           <p>Conduzir cada relação e decisão com ética, transparência e coerência, fortalecendo a confiança que sustenta nossos negócios.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">02</span>
-          <div class="vph"><img src="img/valores/solidez.jpg" alt="Estrutura de vidro e aço vista de baixo" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/solidez.jpg?v=2" alt="Estrutura de vidro e aço vista de baixo" width="560" height="700" loading="lazy"></div>
           <h3>Solidez</h3>
           <p>Construir resultados duradouros por meio de uma atuação responsável, fundamentada em consistência, segurança e sustentabilidade.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">03</span>
-          <div class="vph"><img src="img/valores/inteligencia-estrategica.jpg" alt="Pessoas conversando em uma mesa de trabalho" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/inteligencia-estrategica.jpg?v=2" alt="Pessoas conversando em uma mesa de trabalho" width="560" height="700" loading="lazy"></div>
           <h3>Inteligência estratégica</h3>
           <p>Transformar conhecimento, dados e oportunidades em decisões que geram valor.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">04</span>
-          <div class="vph"><img src="img/valores/excelencia.jpg" alt="Detalhe de painel de madeira com formas curvas" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/excelencia.jpg?v=2" alt="Detalhe de painel de madeira com formas curvas" width="560" height="700" loading="lazy"></div>
           <h3>Excelência</h3>
           <p>Buscar qualidade em cada processo, projeto, relacionamento e entrega.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">05</span>
-          <div class="vph"><img src="img/valores/responsabilidade.jpg" alt="Engenheiro analisando uma planta diante de uma obra" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/responsabilidade.jpg?v=2" alt="Engenheiro analisando uma planta diante de uma obra" width="560" height="700" loading="lazy"></div>
           <h3>Responsabilidade</h3>
           <p>Honrar compromissos e entregar aquilo que prometemos.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">06</span>
-          <div class="vph"><img src="img/valores/respeito-as-pessoas.jpg" alt="Duas pessoas caminhando em um corredor iluminado" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/respeito-as-pessoas.jpg?v=2" alt="Duas pessoas caminhando em um corredor iluminado" width="560" height="700" loading="lazy"></div>
           <h3>Respeito às pessoas</h3>
           <p>Valorizar clientes, colaboradores, parceiros e suas histórias.</p>
         </li>
         <li class="vcard">
           <span class="vnum" aria-hidden="true">07</span>
-          <div class="vph"><img src="img/valores/visao-de-futuro.jpg" alt="Pessoa diante de uma janela ampla com vista para a cidade" width="560" height="700" loading="lazy"></div>
+          <div class="vph"><img src="img/valores/visao-de-futuro.jpg?v=2" alt="Pessoa diante de uma janela ampla com vista para a cidade" width="560" height="700" loading="lazy"></div>
           <h3>Visão de futuro</h3>
           <p>Planejar com perspectiva de longo prazo, buscando evolução e geração de valor duradouro.</p>
         </li>
