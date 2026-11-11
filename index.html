@@ -343,7 +343,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .hero>.wrap{position:relative;z-index:1}
 
 /* Posicionamento: Avenida Paulista à noite, bem sutil, sob o fundo escuro */
-.inst-bg{position:absolute;left:0;right:0;top:-50%;bottom:-50%;will-change:transform;z-index:0;pointer-events:none;opacity:.55;filter:sepia(.25) saturate(1.1)}
+.inst-bg{position:absolute;left:0;right:0;top:-50%;bottom:-50%;will-change:transform;z-index:0;pointer-events:none;opacity:.7;filter:sepia(.3) saturate(1.05)}
 .inst-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
 #institucional{overflow:hidden}
 .inst-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,15,13,.92) 0%,rgba(18,15,13,.55) 45%,rgba(18,15,13,.35) 100%),linear-gradient(180deg,rgba(18,15,13,.6) 0%,transparent 30%,transparent 70%,rgba(18,15,13,.75) 100%)}
@@ -439,6 +439,17 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 #missao h2,#missao h3,#marcas h2,#marcas h3,.vcard h3,.vcard h4{color:#a8957f}
 #missao h2 .dot,#marcas h2 .dot,.vals-side h2 .dot{color:#a8957f}
 #missao p,#marcas p,.vcard p{color:#3d3936}
+
+/* Posicionamento: o próprio bloco (com o vídeo) desenha a onda inferior */
+#institucional{z-index:2;padding-bottom:calc(clamp(72px,7vw,110px) + clamp(56px,8vw,130px));margin-bottom:calc(-1 * clamp(56px,8vw,130px));
+-webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - clamp(56px,8vw,130px) + 1px) no-repeat,url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDEyMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHBhdGggZD0iTTAgMEgxNDQwVjEwNEMxMTgwIDY2IDkzMCAzMCA2NTAgMjRDNDMwIDIwIDIzMCAzMCAwIDU4WiIvPjwvc3ZnPg==") bottom/100% clamp(56px,8vw,130px) no-repeat;
+mask:linear-gradient(#000 0 0) top/100% calc(100% - clamp(56px,8vw,130px) + 1px) no-repeat,url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDEyMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHBhdGggZD0iTTAgMEgxNDQwVjEwNEMxMTgwIDY2IDkzMCAzMCA2NTAgMjRDNDMwIDIwIDIzMCAzMCAwIDU4WiIvPjwvc3ZnPg==") bottom/100% clamp(56px,8vw,130px) no-repeat}
+#missao .mv{z-index:3}
+#missao{overflow:visible;padding-top:calc(clamp(88px,11vw,152px) + clamp(56px,8vw,130px))}
+#missao .mv-img-a{position:relative;z-index:5;margin-top:calc(-1 * (clamp(56px,8vw,130px) + clamp(150px,15vw,220px)))}
+/* Nossos valores: título centralizado, sem traço */
+.vals-side{text-align:center}
+.vals-title::after{display:none}
 </style>
 </head>
 <body>
@@ -526,7 +537,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 <!-- Posicionamento institucional -->
 <div class="wave flip" style="--wc:#f5f2ed" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band inst" id="institucional">
-<div class="inst-bg" aria-hidden="true"><video src="img/inst-curvas.mp4?v=1" poster="img/inst-curvas-poster.jpg?v=1" autoplay muted loop playsinline preload="metadata"></video></div>
+<div class="inst-bg" aria-hidden="true"><video src="img/inst-fluido.mp4?v=1" poster="img/inst-fluido-poster.jpg?v=1" autoplay muted loop playsinline preload="metadata"></video></div>
   <div class="wrap ihero-grid">
     <div class="ihero-head">
       <p class="eyebrow rv">Posicionamento institucional</p>
@@ -541,11 +552,11 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </section>
 
 <!-- Missão, visão e valores -->
-<div class="wave" style="--wc:#120f0d" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
+<div class="wave" style="--wc:transparent" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band light" id="missao">
   <div class="wrap mv">
     <div class="mv-col">
-      <figure class="qs-ph mv-img mv-img-a" data-speed="-20"><img src="img/qs-fachada.jpg?v=1" alt="Fachada de edifício contemporâneo em concreto branco ao entardecer" loading="lazy"></figure>
+      <figure class="qs-ph mv-img mv-img-a" data-speed="-5"><img src="img/qs-fachada.jpg?v=1" alt="Fachada de edifício contemporâneo em concreto branco ao entardecer" loading="lazy"></figure>
       <h2 class="rv">Missão<span class="dot">.</span></h2>
       <p class="rv d1">Transformar oportunidades imobiliárias em negócios sólidos e relevantes, integrando inteligência, planejamento e excelência para gerar valor duradouro às pessoas, aos parceiros e à sociedade.</p>
     </div>
