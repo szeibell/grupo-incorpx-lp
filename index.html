@@ -370,7 +370,10 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 }
 
 /* Quem somos — layout editorial com imagens em movimento */
-#grupo.qs{background:#f5f2ed;color:#1b1b1b}
+#grupo.qs{background:#f5f2ed;color:#1b1b1b;overflow:visible;z-index:3;padding-bottom:0}
+#grupo .qs-grid{margin-bottom:calc(-1 * clamp(140px,15vw,240px))}
+#institucional{padding-top:calc(clamp(88px,11vw,152px) + clamp(140px,15vw,240px))}
+.qs-ph{box-shadow:0 30px 60px -30px rgba(18,15,13,.45)}
 .qs-head{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);align-items:end;margin-bottom:clamp(56px,8vw,120px)}
 .qs-head .eyebrow{margin-bottom:28px}
 .qs-title{font-weight:300;text-transform:uppercase;font-size:clamp(36px,4.6vw,76px);line-height:1;letter-spacing:-.025em;color:#a8957f;max-width:21ch}
@@ -378,7 +381,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .qs-lead{font-size:clamp(14px,1.05vw,16px);line-height:1.5;color:#3d3936;max-width:34ch;padding-bottom:.5em}
 .qs-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(12px,1.4vw,22px);align-items:stretch}
 .qs-ph{position:relative;margin:0;overflow:hidden;background:#e7e1d8;will-change:transform}
-.qs-ph img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;display:block;will-change:transform;transform:scale(1.18);transition:transform 1.6s var(--ease)}
+.qs-ph img{position:absolute;left:0;top:-20%;width:100%;height:140%;object-fit:cover;display:block;will-change:transform;transform:scale(1.18);transition:transform 1.6s var(--ease)}
 .qs-ph.on img{transform:scale(1.04)}
 .qs-ph{clip-path:inset(18% 0 0 0);transition:clip-path 1.4s var(--ease)}
 .qs-ph.on{clip-path:inset(0 0 0 0)}
@@ -392,7 +395,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .qs-link svg{width:24px;height:12px;fill:none;stroke:currentColor;stroke-width:1.3;transition:transform .45s var(--ease)}
 .qs-link:hover svg{transform:translateX(6px)}
 .qs-thumb{aspect-ratio:.86/1;width:100%}
-.qs-thumb img{object-position:38% 60%}
+.qs-thumb img{object-position:50% 50%}
 .qs-wide{aspect-ratio:1.78/1;margin-top:auto}
 @media (max-width:900px){
   .qs-head{grid-template-columns:1fr;gap:24px}
@@ -466,7 +469,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <p class="qs-lead rv d2">Acreditamos que construir o futuro começa com boas decisões no presente e com o compromisso de transformar planos em realizações.</p>
     </div>
     <div class="qs-grid">
-      <figure class="qs-ph qs-big" data-speed="-6"><img src="img/qs-fachada.jpg?v=1" alt="Fachada de edifício residencial contemporâneo em concreto branco" loading="lazy"></figure>
+      <figure class="qs-ph qs-big" data-speed="-10"><img src="img/qs-lobby.jpg?v=1" alt="Lobby com pé-direito duplo e vista para o skyline ao pôr do sol" loading="lazy"></figure>
       <div class="qs-side">
         <div class="qs-info">
           <div class="qs-txt">
@@ -475,9 +478,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
             <p class="rv d2">Com uma estratégia compartilhada e uma gestão integrada, damos suporte ao crescimento de cada empresa, respeitando o que a torna única.</p>
             <a class="qs-link rv d3" href="#marcas">Conheça nossas marcas <svg viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h22M17 1l5 5-5 5"/></svg></a>
           </div>
-          <figure class="qs-ph qs-thumb" data-speed="-16"><img src="img/qs-poltrona.jpg?v=1" alt="Poltrona junto a janela de vidro com luz natural" loading="lazy"></figure>
+          <figure class="qs-ph qs-thumb" data-speed="-26"><img src="img/qs-detalhe.jpg?v=1" alt="Painel de madeira esculpido iluminado pela luz do fim de tarde" loading="lazy"></figure>
         </div>
-        <figure class="qs-ph qs-wide" data-speed="8"><img src="img/qs-sala.jpg?v=1" alt="Sala de estar com janelas do piso ao teto e vista para a cidade" loading="lazy"></figure>
+        <figure class="qs-ph qs-wide" data-speed="22"><img src="img/qs-corredor.jpg?v=1" alt="Corredor de concreto com feixes de luz natural e duas pessoas ao fundo" loading="lazy"></figure>
       </div>
     </div>
   </div>
@@ -831,7 +834,7 @@ addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up);}},{
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
 ph.forEach(function(f){io.observe(f);});var tk=0;
 function up(){tk=0;var vh=innerHeight;ph.forEach(function(f){var r=f.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;var p=Math.max(-1,Math.min(1,(r.top+r.height/2-vh/2)/(vh/2+r.height/2)));var sp=parseFloat(f.dataset.speed)||0;
-f.style.transform='translate3d(0,'+(p*sp*6).toFixed(1)+'px,0)';var im=f.firstElementChild;im.style.translate='0 '+(p*-9).toFixed(2)+'%';});}
+f.style.transform='translate3d(0,'+(p*sp*7).toFixed(1)+'px,0)';var im=f.firstElementChild;im.style.translate='0 '+(p*-14).toFixed(2)+'%';});}
 addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up);}},{passive:true});addEventListener('resize',up);up();})();
 </script>
 
