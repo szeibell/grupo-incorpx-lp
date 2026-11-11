@@ -12,7 +12,7 @@
   --taupe:#a89e97; --taupe-escuro:#5c5653; --terracota:#c57e58; --damasco:#e4a58b;
   --ground:#120f0d; --raised:#1a1512; --ink:#f1f0eb; --muted:#9a9a9a; --soft:#cfceca;
   --hair:rgba(255,255,255,.22); --hair-dark:rgba(27,27,27,.22); --line:#6b6b6b;
-  --l-ground:#f1f0eb; --l-ink:#1b1b1b; --l-muted:#5c5653;
+  --l-ground:#ffffff; --l-ink:#1b1b1b; --l-muted:#5c5653;
   --font:"Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.2,.7,.1,1);
   --gutter-l:max(24px, env(safe-area-inset-left, 0px)); --gutter-r:max(24px, env(safe-area-inset-right, 0px));
@@ -33,7 +33,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 .wrap{max-width:1320px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 .band{padding-block:clamp(88px,11vw,152px);position:relative}
-.light{background:radial-gradient(ellipse 60% 70% at 92% 0%,rgba(226,160,120,.28),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.18),transparent 70%),linear-gradient(180deg,#f3ece4,#efe5da);color:var(--l-ink);--l-ground:#f1e8de}
+.light{background:radial-gradient(ellipse 60% 70% at 92% 0%,rgba(226,160,120,.13),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.08),transparent 70%),#ffffff;color:var(--l-ink);--l-ground:#ffffff}
 .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
 .light .eyebrow{color:var(--l-muted)}
@@ -322,8 +322,8 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .hero>.wrap,.band>.wrap{position:relative;z-index:1}
 /* transição suave do Grupo IOX (escuro) para Nossas marcas (bege) */
 #iox{padding-bottom:clamp(170px,15vw,220px);background:radial-gradient(ellipse 55% 45% at 88% 6%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
-#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(420px,38vw,560px);background:linear-gradient(180deg,rgba(18,15,13,0.00) 0.0%,rgba(18,15,13,0.20) 3.6%,rgba(18,15,13,0.40) 7.1%,rgba(20,16,14,0.60) 10.7%,rgba(21,17,15,0.79) 14.3%,rgba(24,19,16,0.99) 17.9%,rgba(28,22,18,1.00) 21.4%,rgba(33,26,21,1.00) 25.0%,rgba(40,31,25,1.00) 28.6%,rgba(48,37,30,1.00) 32.1%,rgba(57,44,37,1.00) 35.7%,rgba(67,53,44,1.00) 39.3%,rgba(78,63,52,1.00) 42.9%,rgba(90,73,62,1.00) 46.4%,rgba(103,85,73,1.00) 50.0%,rgba(116,98,85,1.00) 53.6%,rgba(130,111,97,1.00) 57.1%,rgba(143,124,109,1.00) 60.7%,rgba(156,137,122,1.00) 64.3%,rgba(168,150,134,1.00) 67.9%,rgba(179,161,145,1.00) 71.4%,rgba(189,171,155,1.00) 75.0%,rgba(197,180,163,1.00) 78.6%,rgba(203,187,170,1.00) 82.1%,rgba(208,192,175,1.00) 85.7%,rgba(211,195,178,1.00) 89.3%,rgba(213,197,180,1.00) 92.9%,rgba(214,198,181,1.00) 96.4%,rgba(214,198,181,1.00) 100.0%);pointer-events:none;z-index:0}
-#marcas{padding-top:clamp(32px,3vw,48px);background:radial-gradient(ellipse 60% 70% at 92% 30%,rgba(214,146,104,.22),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(214,146,104,.16),transparent 70%),linear-gradient(180deg,#d6c6b5 0,#ddcfbf 22%,#e4d8ca 55%,#e9dfd3 100%)}
+#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(420px,38vw,560px);background:linear-gradient(180deg,rgba(18,15,13,0.00) 0.0%,rgba(18,15,13,0.20) 3.6%,rgba(19,15,13,0.40) 7.1%,rgba(20,16,14,0.60) 10.7%,rgba(22,18,16,0.79) 14.3%,rgba(26,21,18,0.99) 17.9%,rgba(31,25,21,1.00) 21.4%,rgba(38,30,26,1.00) 25.0%,rgba(46,37,32,1.00) 28.6%,rgba(56,45,39,1.00) 32.1%,rgba(67,55,48,1.00) 35.7%,rgba(80,67,59,1.00) 39.3%,rgba(94,80,71,1.00) 42.9%,rgba(109,94,85,1.00) 46.4%,rgba(124,110,101,1.00) 50.0%,rgba(140,126,118,1.00) 53.6%,rgba(156,143,135,1.00) 57.1%,rgba(172,160,153,1.00) 60.7%,rgba(188,177,171,1.00) 64.3%,rgba(202,193,188,1.00) 67.9%,rgba(215,208,204,1.00) 71.4%,rgba(226,221,218,1.00) 75.0%,rgba(235,232,230,1.00) 78.6%,rgba(243,241,239,1.00) 82.1%,rgba(248,247,246,1.00) 85.7%,rgba(252,251,251,1.00) 89.3%,rgba(254,254,254,1.00) 92.9%,rgba(255,255,255,1.00) 96.4%,rgba(255,255,255,1.00) 100.0%);pointer-events:none;z-index:0}
+#marcas{padding-top:clamp(32px,3vw,48px);background:radial-gradient(ellipse 60% 70% at 92% 30%,rgba(214,146,104,.12),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(214,146,104,.08),transparent 70%),#ffffff}
 
 /* símbolo do banner com borda luminosa */
 
