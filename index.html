@@ -10,7 +10,7 @@
 :root{
   --grafite:#1b1b1b; --grafite-claro:#2b2b2b; --branco:#ffffff; --off-white:#f1f0eb; --cinza-claro:#cfceca;
   --taupe:#a89e97; --taupe-escuro:#5c5653; --terracota:#c57e58; --damasco:#e4a58b;
-  --ground:#0a0a0a; --raised:#111111; --ink:#f1f0eb; --muted:#9a9a9a; --soft:#cfceca;
+  --ground:#120f0d; --raised:#1a1512; --ink:#f1f0eb; --muted:#9a9a9a; --soft:#cfceca;
   --hair:rgba(255,255,255,.22); --hair-dark:rgba(27,27,27,.22); --line:#6b6b6b;
   --l-ground:#f1f0eb; --l-ink:#1b1b1b; --l-muted:#5c5653;
   --font:"Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
@@ -33,7 +33,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 .wrap{max-width:1320px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 .band{padding-block:clamp(88px,11vw,152px);position:relative}
-.light{background:var(--l-ground);color:var(--l-ink)}
+.light{background:radial-gradient(ellipse 60% 70% at 92% 0%,rgba(226,160,120,.28),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.18),transparent 70%),linear-gradient(180deg,#f3ece4,#efe5da);color:var(--l-ink);--l-ground:#f1e8de}
 .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
 .light .eyebrow{color:var(--l-muted)}
@@ -46,7 +46,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .num{font-size:22px;color:var(--terracota);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 
 /* Botões */
-.btn{--bg:var(--ink);--fg:var(--grafite);position:relative;display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 26px 0 30px;border-radius:999px;background:var(--bg);color:var(--fg);border:1px solid var(--bg);font:300 12px/1 var(--font);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s var(--ease)}
+.btn{--bg:#df9f7a;--fg:#1b1b1b;position:relative;display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 26px 0 30px;border-radius:999px;background:var(--bg);color:var(--fg);border:1px solid var(--bg);font:300 12px/1 var(--font);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s var(--ease)}
 .btn::before{content:"";position:absolute;inset:0;background:var(--terracota);transform:translateY(101%);border-radius:inherit;transition:transform .55s var(--ease);z-index:-1}
 .btn:hover::before{transform:none}
 .btn:hover{color:var(--grafite);border-color:var(--terracota)}
@@ -58,7 +58,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 /* Cabeçalho */
 .top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
-.top.scrolled{background:rgba(10,10,10,.72);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border-color:rgba(255,255,255,.08)}
+.top.scrolled{background:rgba(18,15,13,.78);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border-color:rgba(214,140,95,.45)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px;transition:padding .4s}
 .top.scrolled .wrap{padding-block:12px}
 .top .logo{display:inline-flex;align-items:center}
@@ -302,6 +302,36 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .flogo{display:inline-flex}
 .flogo img{height:22px;width:auto}
 
+/* Luz em bronze: fundos com brilho, arcos luminosos e luz quente nas imagens */
+.hero,.band:not(.light),.footer{background:radial-gradient(ellipse 55% 60% at 88% 8%,rgba(197,126,88,.27),transparent 70%),radial-gradient(ellipse 50% 55% at 0% 100%,rgba(197,126,88,.18),transparent 70%),var(--ground)}
+.footer{background:radial-gradient(ellipse 40% 140% at 100% 100%,rgba(197,126,88,.16),transparent 70%),var(--ground)}
+.hero,.band{position:relative;overflow:hidden}
+.hero>.wrap,.band>.wrap{position:relative;z-index:1}
+.fx{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fx i{position:absolute;border-radius:50%;border:2px solid transparent;border-top-color:rgba(246,194,160,.95);
+  filter:drop-shadow(0 0 4px rgba(240,166,122,.95)) drop-shadow(0 0 22px rgba(214,136,92,.7));
+  -webkit-mask:linear-gradient(90deg,transparent 0%,#000 30%,#000 70%,transparent 100%);mask:linear-gradient(90deg,transparent 0%,#000 30%,#000 70%,transparent 100%)}
+.fx i:nth-child(1){width:1100px;height:1100px;left:-520px;bottom:-860px;transform:rotate(28deg)}
+.fx i:nth-child(2){width:900px;height:900px;right:-560px;top:-120px;transform:rotate(-62deg)}
+.light .fx i{border-top-color:rgba(205,128,86,.55);filter:drop-shadow(0 0 2px rgba(214,140,95,.6)) drop-shadow(0 0 12px rgba(214,140,95,.35))}
+#institucional .fx i:nth-child(2){right:-380px;top:-520px;transform:rotate(-30deg)}
+#iox .fx i:nth-child(1){left:auto;right:-600px;bottom:-900px;transform:rotate(-24deg)}
+#contato .fx i:nth-child(2){right:-500px;top:auto;bottom:-700px;transform:rotate(-40deg)}
+#missao .fx i:nth-child(1){left:auto;right:-700px;top:-780px;bottom:auto;transform:rotate(200deg)}
+@media (max-width:700px){.fx i:nth-child(1){width:700px;height:700px;left:-380px;bottom:-560px}.fx i:nth-child(2){width:560px;height:560px;right:-380px}}
+/* símbolo do banner com borda luminosa */
+.sym-stage{filter:drop-shadow(0 0 1px rgba(240,182,146,.9)) drop-shadow(0 0 22px rgba(197,126,88,.45))}
+.sym-mask video{filter:sepia(.55) saturate(1.5) contrast(1.06) brightness(.98)}
+/* fotos dos valores com luz dourada */
+.vph{position:relative}
+.vph img{filter:sepia(.6) saturate(1.45) contrast(1.06) brightness(.98)}
+.vph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 75% 20%,rgba(255,176,112,.38),transparent 65%);mix-blend-mode:screen;pointer-events:none}
+.vcard h3::after{content:"";display:block;width:56px;height:2px;margin-top:12px;background:linear-gradient(90deg,#c27b54,rgba(194,123,84,0))}
+.vals-title::after{content:"";display:block;width:min(420px,60%);height:2px;margin-top:22px;background:linear-gradient(90deg,#c27b54,rgba(194,123,84,0))}
+/* fotos das marcas: luz quente sem tirar as cores */
+.brand .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 15%,rgba(255,170,105,.30),transparent 65%);mix-blend-mode:screen;pointer-events:none;z-index:0}
+.brand .ph .tag,.brand .ph .seal{z-index:2}
+
 /* Revelação ao rolar: o estado de repouso é visível; só elementos ainda fora da tela recebem o estado inicial */
 .pre{opacity:0;transform:translateY(36px)}
 .rv{transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
@@ -344,6 +374,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 <main>
 <!-- 1. Abertura -->
 <section class="hero" id="inicio">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -376,6 +407,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 2. Quem somos -->
 <section class="band light" id="grupo">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap about">
     <div class="about-left">
       <p class="eyebrow rv">Quem somos</p>
@@ -395,6 +427,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 <!-- 2b. Institucional -->
 <!-- Posicionamento institucional -->
 <section class="band inst" id="institucional">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap ihero-grid">
     <div class="ihero-head">
       <p class="eyebrow rv">Posicionamento institucional</p>
@@ -410,6 +443,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- Missão, visão e valores -->
 <section class="band light" id="missao">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap mv">
     <div class="mv-col">
       <h2 class="rv">Missão<span class="dot">.</span></h2>
@@ -480,6 +514,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 3. Grupo IOX -->
 <section class="band iox" id="iox">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="iox-head">
       <p class="eyebrow rv">Grupo IOX</p>
@@ -530,6 +565,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 4. Nossas marcas -->
 <section class="band light" id="marcas">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="brands-head">
       <div style="display:flex;flex-direction:column;gap:24px">
@@ -563,6 +599,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 5. Contato -->
 <section class="band" id="contato">
+<div class="fx" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap contact-grid">
     <div class="contact-left">
       <p class="eyebrow rv">Relacionamento e contato</p>
