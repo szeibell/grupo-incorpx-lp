@@ -272,8 +272,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .ct-arc{position:absolute;z-index:0;width:clamp(280px,30vw,460px);height:auto;pointer-events:none;filter:drop-shadow(0 0 2px rgba(240,170,125,.8)) drop-shadow(0 0 10px rgba(214,140,95,.55)) drop-shadow(0 0 28px rgba(214,140,95,.3));opacity:1}
 .ct-arc-tr{top:0;right:0}
 .ct-arc-bl{bottom:0;left:0;width:clamp(220px,24vw,360px);transform:rotate(180deg);opacity:.8}
-.ct-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:url(img/01-arquitetura.jpg?v=1) center 35%/cover no-repeat;opacity:.42;filter:saturate(.8) sepia(.2) brightness(.9)}
-.ct-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,15,13,.94) 0%,rgba(18,15,13,.7) 42%,rgba(18,15,13,.35) 100%),linear-gradient(180deg,rgba(18,15,13,.85) 0%,transparent 28%,transparent 70%,rgba(18,15,13,.9) 100%)}
+.ct-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ct-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ct-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,15,13,.6) 0%,rgba(18,15,13,.35) 38%,transparent 60%),linear-gradient(180deg,rgba(18,15,13,.85) 0%,transparent 22%,transparent 80%,rgba(18,15,13,.9) 100%)}
 #contato .formcard{background:rgba(28,23,20,.62);border:1px solid var(--hair);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1)}
 #contato .field input,#contato .field textarea{color:var(--ink);border-bottom-color:var(--line)}
 #contato .field label{color:var(--muted)}
@@ -711,7 +712,7 @@ mask:linear-gradient(#000 0 0) top/100% calc(100% - clamp(56px,8vw,130px) + 1px)
 <!-- 5. Contato -->
 <div class="wave flip" style="--wc:#ffffff" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/></svg></div>
 <section class="band" id="contato">
-<div class="ct-bg" aria-hidden="true"></div>
+<div class="ct-bg" aria-hidden="true"><video src="img/contato-particulas.mp4?v=1" poster="img/contato-particulas-poster.jpg?v=1" autoplay muted loop playsinline preload="metadata"></video></div>
 <svg class="ct-arc ct-arc-tr" viewBox="0 0 420 420" aria-hidden="true"><defs><linearGradient id="ctg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#d08b65" stop-opacity="0"/><stop offset=".45" stop-color="#d9946c" stop-opacity=".9"/><stop offset=".8" stop-color="#f0bf9c" stop-opacity="1"/><stop offset="1" stop-color="#c27b54" stop-opacity="0"/></linearGradient></defs><circle cx="470" cy="-50" r="300" fill="none" stroke="url(#ctg)" stroke-width="1.8"/><circle cx="470" cy="-50" r="345" fill="none" stroke="url(#ctg)" stroke-width="1" opacity=".6"/></svg>
 <svg class="ct-arc ct-arc-bl" viewBox="0 0 420 420" aria-hidden="true"><circle cx="470" cy="-50" r="300" fill="none" stroke="url(#ctg)" stroke-width="1.8"/><circle cx="470" cy="-50" r="345" fill="none" stroke="url(#ctg)" stroke-width="1" opacity=".6"/></svg>
   <div class="wrap contact-grid">
