@@ -454,6 +454,12 @@ mask:linear-gradient(#000 0 0) top/100% calc(100% - clamp(56px,8vw,130px) + 1px)
 /* Evita vazamento de borda do vídeo fora da máscara (Safari/Chrome) */
 .sym-mask{overflow:hidden;isolation:isolate;transform:translateZ(0);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-clip:border-box;mask-clip:border-box;-webkit-mask-origin:border-box;mask-origin:border-box}
 .sym-mask video{backface-visibility:hidden}
+
+/* Rodapé mais alto, com nome do grupo acima do endereço */
+.footer{padding-block:clamp(56px,6vw,96px)}
+.faddr{display:flex;flex-direction:column;gap:8px}
+.faddr .fname{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.faddr address{font-style:normal;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -747,7 +753,7 @@ mask:linear-gradient(#000 0 0) top/100% calc(100% - clamp(56px,8vw,130px) + 1px)
 <!-- 6. Rodapé -->
 <footer class="footer">
   <div class="wrap footer-row">
-    <address class="faddr">Av. Brigadeiro Faria Lima, 210 – Pinheiros</address>
+    <div class="faddr"><p class="fname">Grupo Incorpx</p><address>Av. Brigadeiro Faria Lima, 210 – Pinheiros – São Paulo</address></div>
     <a class="flogo" href="#inicio" aria-label="Grupo Incorpx, voltar ao início"><img src="img/logo-grupo-negativo.svg" alt="Grupo Incorpx" width="236" height="34"></a>
   </div>
 </footer>
