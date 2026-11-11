@@ -314,7 +314,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .footer-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
 .faddr{font-style:normal;font-size:13px;letter-spacing:.04em;color:var(--soft)}
 .flogo{display:inline-flex}
-.flogo img{height:22px;width:auto}
+.flogo img{height:clamp(32px,3vw,44px);width:auto}
 
 /* Luz em bronze: fundos com brilho, arcos luminosos e luz quente nas imagens */
 .hero,.band:not(.light),.footer{background:radial-gradient(ellipse 55% 60% at 88% 8%,rgba(197,126,88,.27),transparent 70%),radial-gradient(ellipse 50% 55% at 0% 100%,rgba(197,126,88,.18),transparent 70%),var(--ground)}
