@@ -321,9 +321,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .hero,.band{position:relative;overflow:hidden}
 .hero>.wrap,.band>.wrap{position:relative;z-index:1}
 /* transição suave do Grupo IOX (escuro) para Nossas marcas (bege) */
-#iox{padding-bottom:clamp(170px,15vw,220px);background:radial-gradient(ellipse 55% 45% at 88% 6%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
-#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(420px,38vw,560px);background:linear-gradient(180deg,rgba(18,15,13,0.00) 0.0%,rgba(18,15,13,0.20) 3.6%,rgba(19,15,13,0.40) 7.1%,rgba(20,16,14,0.60) 10.7%,rgba(22,18,16,0.79) 14.3%,rgba(26,21,18,0.99) 17.9%,rgba(31,25,21,1.00) 21.4%,rgba(38,30,26,1.00) 25.0%,rgba(46,37,32,1.00) 28.6%,rgba(56,45,39,1.00) 32.1%,rgba(67,55,48,1.00) 35.7%,rgba(80,67,59,1.00) 39.3%,rgba(94,80,71,1.00) 42.9%,rgba(109,94,85,1.00) 46.4%,rgba(124,110,101,1.00) 50.0%,rgba(140,126,118,1.00) 53.6%,rgba(156,143,135,1.00) 57.1%,rgba(172,160,153,1.00) 60.7%,rgba(188,177,171,1.00) 64.3%,rgba(202,193,188,1.00) 67.9%,rgba(215,208,204,1.00) 71.4%,rgba(226,221,218,1.00) 75.0%,rgba(235,232,230,1.00) 78.6%,rgba(243,241,239,1.00) 82.1%,rgba(248,247,246,1.00) 85.7%,rgba(252,251,251,1.00) 89.3%,rgba(254,254,254,1.00) 92.9%,rgba(255,255,255,1.00) 96.4%,rgba(255,255,255,1.00) 100.0%);pointer-events:none;z-index:0}
-#marcas{padding-top:clamp(32px,3vw,48px);background:radial-gradient(ellipse 60% 70% at 92% 30%,rgba(214,146,104,.12),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(214,146,104,.08),transparent 70%),#ffffff}
+#iox{background:radial-gradient(ellipse 55% 45% at 88% 22%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
+
+#marcas{background:radial-gradient(ellipse 60% 70% at 92% 30%,rgba(214,146,104,.12),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(214,146,104,.08),transparent 70%),#ffffff}
 
 /* símbolo do banner com borda luminosa */
 
@@ -370,7 +370,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 }
 
 /* Quem somos — layout editorial com imagens em movimento */
-#grupo.qs{background:#f5f2ed;color:#1b1b1b;overflow:visible;z-index:3;padding-bottom:0}
+#grupo.qs{background:#f5f2ed;color:#1b1b1b;overflow:visible;z-index:3;padding-bottom:1px}
 #grupo .qs-grid{margin-bottom:calc(-1 * clamp(140px,15vw,240px))}
 #institucional{padding-top:calc(clamp(88px,11vw,152px) + clamp(140px,15vw,240px))}
 .qs-ph{box-shadow:0 30px 60px -30px rgba(18,15,13,.45)}
@@ -406,10 +406,21 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   .qs-info{padding-left:0;grid-template-columns:minmax(0,1fr) 110px}
 }
 @media (max-width:520px){.qs-info{grid-template-columns:1fr}.qs-thumb{max-width:180px}}
+
+/* Transição ondulada entre blocos + linha de luz bronze */
+.wave{position:relative;height:0;padding-top:1px;margin-bottom:-1px;z-index:2;pointer-events:none}
+.wave.top4{z-index:4}
+.wave svg{position:absolute;left:0;top:-1px;width:100%;height:clamp(56px,8vw,130px);display:block;overflow:visible}
+.wave.flip svg{transform:scaleX(-1)}
+.wave .wf{fill:var(--wc)}
+.wave .wl,.wave .wl-g{fill:none;stroke:url(#waveLine);vector-effect:non-scaling-stroke}
+.wave .wl{stroke-width:1.2}
+.wave .wl-g{stroke-width:7;opacity:.28;filter:blur(3px)}
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="waveLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c27b54" stop-opacity="0"/><stop offset=".45" stop-color="#d08b65" stop-opacity=".9"/><stop offset=".8" stop-color="#f0bf9c"/><stop offset="1" stop-color="#dc9e7f" stop-opacity=".2"/></linearGradient></defs></svg>
 <header class="top" id="top">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="Grupo Incorpx, voltar ao início"><span class="lg-sym"><img src="img/logo-simbolo-topo.svg" alt="" width="184" height="161"></span><span class="lg-word"><img src="img/logo-palavra-negativo.svg" alt="" width="910" height="161"></span></a>
@@ -460,6 +471,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </div>
 
 <!-- 2. Quem somos -->
+<div class="wave top4" style="--wc:#120f0d" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band light qs" id="grupo">
   <div class="wrap">
     <div class="qs-head">
@@ -489,6 +501,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 2b. Institucional -->
 <!-- Posicionamento institucional -->
+<div class="wave flip" style="--wc:#f5f2ed" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band inst" id="institucional">
 <div class="inst-bg" aria-hidden="true"><video src="img/sp-paulista.mp4?v=1" poster="img/sp-paulista-poster.jpg?v=1" autoplay muted loop playsinline preload="metadata"></video></div>
   <div class="wrap ihero-grid">
@@ -505,6 +518,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </section>
 
 <!-- Missão, visão e valores -->
+<div class="wave" style="--wc:#120f0d" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band light" id="missao">
   <div class="wrap mv">
     <div class="mv-col">
@@ -575,6 +589,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </section>
 
 <!-- 3. Grupo IOX -->
+<div class="wave flip" style="--wc:#ffffff" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band iox" id="iox">
   <div class="wrap">
     <div class="iox-head">
@@ -625,6 +640,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </section>
 
 <!-- 4. Nossas marcas -->
+<div class="wave" style="--wc:#120f0d" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band light" id="marcas">
   <div class="wrap">
     <div class="brands-head">
@@ -658,6 +674,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </section>
 
 <!-- 5. Contato -->
+<div class="wave flip" style="--wc:#ffffff" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wf" d="M0 0H1440V104C1180 66 930 30 650 24C430 20 230 30 0 58Z"/><path class="wl-g" d="M940 118C1120 96 1290 48 1440 16"/><path class="wl" d="M940 118C1120 96 1290 48 1440 16"/></svg></div>
 <section class="band" id="contato">
 <div class="ct-bg" aria-hidden="true"></div>
 <svg class="ct-arc ct-arc-tr" viewBox="0 0 420 420" aria-hidden="true"><defs><linearGradient id="ctg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#d08b65" stop-opacity="0"/><stop offset=".45" stop-color="#d9946c" stop-opacity=".9"/><stop offset=".8" stop-color="#f0bf9c" stop-opacity="1"/><stop offset="1" stop-color="#c27b54" stop-opacity="0"/></linearGradient></defs><circle cx="470" cy="-50" r="300" fill="none" stroke="url(#ctg)" stroke-width="1.8"/><circle cx="470" cy="-50" r="345" fill="none" stroke="url(#ctg)" stroke-width="1" opacity=".6"/></svg>
@@ -826,7 +843,7 @@ addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up);}},{
 (function(){var top=document.getElementById('top');if(!top)return;var lights=[].slice.call(document.querySelectorAll('section.light')),iox=document.getElementById('iox'),tk=0;
 function up(){tk=0;var y=top.getBoundingClientRect().top+top.offsetHeight/2,on=false;
 lights.forEach(function(sec){var r=sec.getBoundingClientRect();if(y>=r.top&&y<r.bottom)on=true;});
-if(iox){var r=iox.getBoundingClientRect(),fade=Math.min(560,Math.max(420,innerWidth*.38));if(y<r.bottom&&y>r.bottom-fade*.42)on=true;}
+
 top.classList.toggle('on-light',on);}
 addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(up);}},{passive:true});addEventListener('resize',up);up();})();
 
