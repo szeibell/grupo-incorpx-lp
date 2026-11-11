@@ -103,7 +103,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .nav .btn::after{display:none}
 
 /* Abertura */
-.hero{padding-top:clamp(140px,16vw,200px);padding-bottom:clamp(64px,8vw,112px);position:relative;overflow:hidden}
+.hero{padding-top:clamp(120px,12vw,160px);padding-bottom:clamp(48px,5vw,80px);position:relative;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);align-items:center}
 .hero-copy{display:flex;flex-direction:column;gap:36px;min-width:0}
 .hero h1{font-size:clamp(34px,4.1vw,62px);line-height:.96;letter-spacing:-.03em}
@@ -419,16 +419,13 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 /* Banner: símbolo com vídeo ampliado, sangrando a tela, e contorno bronze girando atrás */
 .hero-copy{position:relative;z-index:3}
+.hero h1 .ln{white-space:nowrap}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(140px,16vw,240px);background:linear-gradient(180deg,rgba(18,15,13,0) 0%,rgba(18,15,13,.55) 45%,#120f0d 92%);pointer-events:none;z-index:2}
 .scroll-cue{position:relative;z-index:3}
 .hero-media{z-index:1}
 @media (min-width:861px){
-  .hero-media .sym-stage{width:150%;max-width:none;margin:-34% -50% -22% 0;transform:translateX(4%)}
+  .hero-media .sym-stage{width:128%;max-width:none;margin:-22% -28% -18% 0;transform:translateX(4%)}
 }
-.sym-outline{position:absolute;z-index:-1;pointer-events:none;width:118%;aspect-ratio:220/190;left:-14%;top:34%;animation:outSpin 90s linear infinite}
-.sym-outline img{width:100%;height:100%;display:block;opacity:.7;filter:drop-shadow(0 0 5px rgba(214,140,95,.35))}
-@keyframes outSpin{to{transform:rotate(360deg)}}
-@media (max-width:860px){.sym-outline{width:120%;left:-30%;top:25%}}
 </style>
 </head>
 <body>
@@ -456,7 +453,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1><span class="ln"><span>O futuro</span></span><span class="ln"><span>se constrói</span></span><span class="ln"><span>com</span></span><span class="ln"><span><em>fundamento</em>.</span></span></h1>
+        <h1><span class="ln"><span>O futuro se</span></span><span class="ln"><span>constrói com</span></span><span class="ln"><span><em>fundamento</em>.</span></span></h1>
         <p class="lead">Um ecossistema imobiliário que integra as marcas INIX e INCORPX, do econômico ao alto padrão, com gestão estratégica para criar novas possibilidades de morar e investir.</p>
         <p class="lead hero-lead2">Com a solidez do Grupo IOX, unimos experiência, inteligência de negócios e visão de futuro para gerar valor.</p>
         <div class="hero-cta">
@@ -465,7 +462,6 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
         </div>
       </div>
       <div class="hero-media">
-        <div class="sym-outline" aria-hidden="true"><img src="img/simbolo-outline.svg?v=1" alt=""></div>
         <div class="sym-stage">
           <div class="sym-mask">
             <video id="heroVideo" src="img/hero-simbolo.mp4?v=3" poster="img/hero-poster.jpg?v=3" autoplay muted loop playsinline preload="auto" aria-label="Sequência de imagens de arquitetura e pessoas dentro do símbolo do Grupo Incorpx"></video>
