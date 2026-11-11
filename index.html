@@ -260,8 +260,11 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 @media (max-width:520px){.stats{grid-template-columns:1fr}.stat:nth-child(2n){padding-left:0;border-left:0}}
 
 /* Contato */
-#contato{border-top:1px solid var(--hair)}
-#contato .formcard{background:var(--raised);border:1px solid var(--hair)}
+#contato{border-top:1px solid var(--hair);position:relative;overflow:hidden;isolation:isolate}
+#contato>*:not(.ct-bg){position:relative;z-index:1}
+.ct-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:url(img/01-arquitetura.jpg?v=1) center 35%/cover no-repeat;opacity:.42;filter:saturate(.8) sepia(.2) brightness(.9)}
+.ct-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,15,13,.94) 0%,rgba(18,15,13,.7) 42%,rgba(18,15,13,.35) 100%),linear-gradient(180deg,rgba(18,15,13,.85) 0%,transparent 28%,transparent 70%,rgba(18,15,13,.9) 100%)}
+#contato .formcard{background:rgba(28,23,20,.62);border:1px solid var(--hair);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1)}
 #contato .field input,#contato .field textarea{color:var(--ink);border-bottom-color:var(--line)}
 #contato .field label{color:var(--muted)}
 #contato .field input:focus,#contato .field textarea:focus{border-color:var(--ink)}
@@ -271,7 +274,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 #contato .form-foot small{color:var(--muted)}
 #contato .lead{color:var(--soft)}
 #contato .success svg path:last-child{stroke:var(--ink)}
-#contato input:-webkit-autofill,#contato textarea:-webkit-autofill{-webkit-text-fill-color:var(--ink);box-shadow:0 0 0 100px var(--raised) inset}
+#contato input:-webkit-autofill,#contato textarea:-webkit-autofill{-webkit-text-fill-color:var(--ink);box-shadow:0 0 0 100px #1c1714 inset}
 .contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);align-items:start}
 .contact-left{display:flex;flex-direction:column;gap:28px;min-width:0}
 .formcard{background:var(--branco);padding:clamp(24px,4vw,48px);min-width:0}
@@ -308,9 +311,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .hero,.band{position:relative;overflow:hidden}
 .hero>.wrap,.band>.wrap{position:relative;z-index:1}
 /* transição suave do Grupo IOX (escuro) para Nossas marcas (bege) */
-#iox{padding-bottom:clamp(170px,16vw,230px);background:radial-gradient(ellipse 55% 45% at 88% 6%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
-#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(150px,14vw,210px);background:linear-gradient(180deg,rgba(18,15,13,0) 0%,rgb(20,16,14) 7%,rgb(26,21,17) 14%,rgb(37,28,23) 21%,rgb(50,39,32) 29%,rgb(68,53,45) 36%,rgb(88,72,62) 43%,rgb(111,94,83) 50%,rgb(136,119,108) 57%,rgb(161,145,135) 64%,rgb(186,172,162) 71%,rgb(208,197,187) 79%,rgb(227,217,208) 86%,rgb(239,231,223) 93%,rgb(243,236,228) 100%);pointer-events:none;z-index:0}
-#marcas{padding-top:clamp(40px,4vw,64px);background:linear-gradient(180deg,#f3ece4 0,rgba(243,236,228,0) 260px),radial-gradient(ellipse 60% 70% at 92% 30%,rgba(226,160,120,.24),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.18),transparent 70%),linear-gradient(180deg,#f3ece4,#efe5da)}
+#iox{padding-bottom:clamp(170px,15vw,220px);background:radial-gradient(ellipse 55% 45% at 88% 6%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
+#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(420px,38vw,560px);background:linear-gradient(180deg,rgba(18,15,13,0.00) 0.0%,rgba(18,15,13,0.23) 4.2%,rgba(19,16,13,0.46) 8.3%,rgba(21,17,14,0.69) 12.5%,rgba(24,19,16,0.93) 16.7%,rgba(28,22,18,1.00) 20.8%,rgba(35,27,22,1.00) 25.0%,rgba(43,33,28,1.00) 29.2%,rgba(54,42,35,1.00) 33.3%,rgba(66,52,44,1.00) 37.5%,rgba(80,65,56,1.00) 41.7%,rgba(96,79,69,1.00) 45.8%,rgba(113,96,85,1.00) 50.0%,rgba(131,114,103,1.00) 54.2%,rgba(149,132,122,1.00) 58.3%,rgba(167,151,141,1.00) 62.5%,rgba(184,170,159,1.00) 66.7%,rgba(200,187,177,1.00) 70.8%,rgba(213,202,193,1.00) 75.0%,rgba(224,215,206,1.00) 79.2%,rgba(233,224,216,1.00) 83.3%,rgba(238,231,222,1.00) 87.5%,rgba(242,234,226,1.00) 91.7%,rgba(243,236,228,1.00) 95.8%,rgba(243,236,228,1.00) 100.0%);pointer-events:none;z-index:0}
+#marcas{padding-top:clamp(32px,3vw,48px);background:linear-gradient(180deg,#f3ece4 0,rgba(243,236,228,0) 260px),radial-gradient(ellipse 60% 70% at 92% 30%,rgba(226,160,120,.24),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.18),transparent 70%),linear-gradient(180deg,#f3ece4,#efe5da)}
 
 /* símbolo do banner com borda luminosa */
 .sym-stage{filter:drop-shadow(0 0 1px rgba(240,182,146,.9)) drop-shadow(0 0 22px rgba(197,126,88,.45))}
@@ -356,7 +359,6 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 </style>
 </head>
 <body>
-
 
 <header class="top" id="top">
   <div class="wrap">
@@ -596,6 +598,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 
 <!-- 5. Contato -->
 <section class="band" id="contato">
+<div class="ct-bg" aria-hidden="true"></div>
   <div class="wrap contact-grid">
     <div class="contact-left">
       <p class="eyebrow rv">Relacionamento e contato</p>
@@ -751,6 +754,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
   document.getElementById('f-tel').addEventListener('input',function(e){var d=e.target.value.replace(/\D/g,'').slice(0,11);var o=d;if(d.length>2)o='('+d.slice(0,2)+') '+d.slice(2);if(d.length>7)o='('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4);e.target.value=o;});
 })();
 </script>
+
 
 </body>
 </html>
