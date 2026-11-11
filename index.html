@@ -308,9 +308,9 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 .hero,.band{position:relative;overflow:hidden}
 .hero>.wrap,.band>.wrap{position:relative;z-index:1}
 /* transição suave do Grupo IOX (escuro) para Nossas marcas (bege) */
-#iox{padding-bottom:clamp(300px,34vw,480px);background:radial-gradient(ellipse 55% 45% at 88% 6%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
-#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(280px,32vw,460px);background:linear-gradient(180deg,rgba(18,15,13,0) 0%,rgb(20,16,14) 7%,rgb(26,21,17) 14%,rgb(37,28,23) 21%,rgb(50,39,32) 29%,rgb(68,53,45) 36%,rgb(88,72,62) 43%,rgb(111,94,83) 50%,rgb(136,119,108) 57%,rgb(161,145,135) 64%,rgb(186,172,162) 71%,rgb(208,197,187) 79%,rgb(227,217,208) 86%,rgb(239,231,223) 93%,rgb(243,236,228) 100%);pointer-events:none;z-index:0}
-#marcas{background:linear-gradient(180deg,#f3ece4 0,rgba(243,236,228,0) 260px),radial-gradient(ellipse 60% 70% at 92% 30%,rgba(226,160,120,.24),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.18),transparent 70%),linear-gradient(180deg,#f3ece4,#efe5da)}
+#iox{padding-bottom:clamp(170px,16vw,230px);background:radial-gradient(ellipse 55% 45% at 88% 6%,rgba(197,126,88,.27),transparent 70%),var(--ground)}
+#iox::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(150px,14vw,210px);background:linear-gradient(180deg,rgba(18,15,13,0) 0%,rgb(20,16,14) 7%,rgb(26,21,17) 14%,rgb(37,28,23) 21%,rgb(50,39,32) 29%,rgb(68,53,45) 36%,rgb(88,72,62) 43%,rgb(111,94,83) 50%,rgb(136,119,108) 57%,rgb(161,145,135) 64%,rgb(186,172,162) 71%,rgb(208,197,187) 79%,rgb(227,217,208) 86%,rgb(239,231,223) 93%,rgb(243,236,228) 100%);pointer-events:none;z-index:0}
+#marcas{padding-top:clamp(40px,4vw,64px);background:linear-gradient(180deg,#f3ece4 0,rgba(243,236,228,0) 260px),radial-gradient(ellipse 60% 70% at 92% 30%,rgba(226,160,120,.24),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(226,160,120,.18),transparent 70%),linear-gradient(180deg,#f3ece4,#efe5da)}
 
 /* símbolo do banner com borda luminosa */
 .sym-stage{filter:drop-shadow(0 0 1px rgba(240,182,146,.9)) drop-shadow(0 0 22px rgba(197,126,88,.45))}
@@ -326,6 +326,16 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 /* fotos das marcas: luz quente sem tirar as cores */
 .brand .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 15%,rgba(255,150,80,.55),transparent 65%);mix-blend-mode:soft-light;pointer-events:none;z-index:0}
 .brand .ph .tag,.brand .ph .seal{z-index:2}
+
+/* Luz bronze no banner (só no topo) */
+.hero-arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;
+  -webkit-mask:linear-gradient(180deg,transparent 0,#000 12%,#000 86%,transparent 100%);mask:linear-gradient(180deg,transparent 0,#000 12%,#000 86%,transparent 100%)}
+.hero>.wrap{position:relative;z-index:1}
+@media (max-width:860px){.hero-arcs{opacity:.6}}
+/* Símbolo do grupo com borda de luz bronze no Posicionamento */
+.inst-star{position:absolute;z-index:0;pointer-events:none;width:clamp(220px,21vw,320px);height:auto;left:36%;top:clamp(-120px,-7.5vw,-70px);opacity:.95}
+#institucional>.wrap{position:relative;z-index:1}
+@media (max-width:860px){.inst-star{left:auto;right:-60px;top:-140px;width:260px;opacity:.7}}
 
 /* Revelação ao rolar: o estado de repouso é visível; só elementos ainda fora da tela recebem o estado inicial */
 .pre{opacity:0;transform:translateY(36px)}
@@ -369,6 +379,18 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 <main>
 <!-- 1. Abertura -->
 <section class="hero" id="inicio">
+<svg class="hero-arcs" viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+  <defs>
+    <filter id="glowB" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b1"/><feGaussianBlur in="SourceGraphic" stdDeviation="14" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="arcFade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f3c3a2" stop-opacity="0"/><stop offset=".35" stop-color="#f3c3a2" stop-opacity=".95"/><stop offset=".8" stop-color="#e9a47e" stop-opacity=".9"/><stop offset="1" stop-color="#e9a47e" stop-opacity="0"/></linearGradient>
+    <linearGradient id="arcFadeV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3c3a2" stop-opacity="0"/><stop offset=".3" stop-color="#f3c3a2" stop-opacity=".9"/><stop offset=".75" stop-color="#e9a47e" stop-opacity=".8"/><stop offset="1" stop-color="#e9a47e" stop-opacity="0"/></linearGradient>
+  </defs>
+  <g fill="none" stroke-width="1.6" filter="url(#glowB)">
+    <path d="M760 860 C 900 620, 1120 520, 1420 470" stroke="url(#arcFade)"/>
+    <path d="M1010 40 C 1060 220, 1200 330, 1430 360" stroke="url(#arcFadeV)"/>
+    <path d="M640 760 C 760 690, 860 660, 960 650" stroke="url(#arcFade)" stroke-width="1.1" opacity=".7"/>
+  </g>
+</svg>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -383,7 +405,7 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
       <div class="hero-media">
         <div class="sym-stage">
           <div class="sym-mask">
-            <video id="heroVideo" src="img/hero-simbolo.mp4?v=2" poster="img/hero-poster.jpg?v=2" autoplay muted loop playsinline preload="auto" aria-label="Sequência de imagens de arquitetura e pessoas dentro do símbolo do Grupo Incorpx"></video>
+            <video id="heroVideo" src="img/hero-simbolo.mp4?v=3" poster="img/hero-poster.jpg?v=3" autoplay muted loop playsinline preload="auto" aria-label="Sequência de imagens de arquitetura e pessoas dentro do símbolo do Grupo Incorpx"></video>
           </div>
         </div>
       </div>
@@ -420,6 +442,14 @@ h1,h2{text-wrap:balance;font-weight:300;text-transform:uppercase;letter-spacing:
 <!-- 2b. Institucional -->
 <!-- Posicionamento institucional -->
 <section class="band inst" id="institucional">
+<svg class="inst-star" viewBox="-110 -110 220 220" aria-hidden="true">
+  <defs>
+    <filter id="glowS" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.4" result="b1"/><feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <radialGradient id="starFill" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#3a271d"/><stop offset="1" stop-color="#1a1411"/></radialGradient>
+    <linearGradient id="starEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c9a8"/><stop offset=".5" stop-color="#d98d62"/><stop offset="1" stop-color="#f1b48e"/></linearGradient>
+  </defs>
+  <path d="M0,-100 A100,100 0 0 0 100,0 A100,100 0 0 0 0,100 A100,100 0 0 0 -100,0 A100,100 0 0 0 0,-100 Z" fill="url(#starFill)" stroke="url(#starEdge)" stroke-width="1.2" filter="url(#glowS)"/>
+</svg>
   <div class="wrap ihero-grid">
     <div class="ihero-head">
       <p class="eyebrow rv">Posicionamento institucional</p>
